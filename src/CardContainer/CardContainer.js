@@ -10,7 +10,7 @@ const CardContainer = ({ movies }) => {
         key={movie.id}
         img={movie.poster_path}
         title={movie.title}
-        rating={movie['average_rating']}    
+        rating={movie.average_rating}    
       />
     )
   })
