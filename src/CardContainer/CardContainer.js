@@ -10,12 +10,15 @@ class CardContainer extends Component {
     }
   }
 
-
+  updateSelection = (id) => {
+    this.setState({selectedMovieId: id})
+  }
   //updateSelection method to setState on this.state.selectedMovieId to event.target.id
   render() {
     const cards = this.props.movies.map(movie => {
       return (
         <Card
+          updateSelection={this.updateSelection}
           id={movie.id}
           key={movie.id}
           img={movie.poster_path}
