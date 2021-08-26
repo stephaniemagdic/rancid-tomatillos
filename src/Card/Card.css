@@ -1,0 +1,10 @@
+.Card {
+  display: flex;
+  margin: 20px;
+  flex-direction: column;
+  min-width: 20%;
+  max-width: 20%;
+  min-height: 20%;
+  max-height: 20%;
+}
+
