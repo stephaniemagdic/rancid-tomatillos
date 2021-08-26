@@ -1,5 +1,5 @@
 import './CardContainer.css';
-import Card from './Card/Card'
+import Card from '../Card/Card'
 
 const CardContainer = ({ movies }) => {
 
@@ -10,13 +10,12 @@ const CardContainer = ({ movies }) => {
         key={movie.id}
         img={movie.poster_path}
         title={movie.title}
-        rating={movie['average_rating']}
-        date={movie['release_date']}       
+        rating={movie['average_rating']}    
       />
     )
   })
   return (
-    <section>
+    <section className="CardContainer">
       {cards}
     </section>
   )
