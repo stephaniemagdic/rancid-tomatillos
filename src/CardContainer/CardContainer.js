@@ -2,12 +2,12 @@ import './CardContainer.css';
 import Card from '../Card/Card';
 
 
-const CardContainer = () => {
+const CardContainer = ({ movies, updateSelection }) => {
   
-  const cards = this.props.movies.map(movie => {
+  const cards = movies.map(movie => {
     return (
       <Card
-        updateSelection={this.updateSelection}
+        updateSelection={updateSelection}
         id={movie.id}
         key={movie.id}
         img={movie.poster_path}
