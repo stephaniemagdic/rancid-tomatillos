@@ -1,9 +1,11 @@
 import './MovieDetail.css';
 
-const MovieDetail = () => {
+const MovieDetail = (props) => {
 
   return (
-    <p>I'm made of details!</p>
+    <article className='MovieDetail'>
+    
+    </article>
   )
 }
 

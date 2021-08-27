@@ -1,6 +1,7 @@
 import './MovieDisplay.css';
 import MovieDetail from '../MovieDetail/MovieDetail';
 
+
 const MovieDisplay = (props) => {
 
 
