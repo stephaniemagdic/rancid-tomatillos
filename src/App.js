@@ -2,7 +2,7 @@ import './App.css';
 import React, { Component } from 'react';
 import Header from './Header/Header';
 import CardContainer from './CardContainer/CardContainer';
-// import MovieDisplay from './MovieDisplay/MovieDisplay';
+import MovieDisplay from './MovieDisplay/MovieDisplay';
 // import MovieDetails from './MovieDetails/MovieDetails';
 import movieData from './data/dummyData';
 
@@ -39,14 +39,17 @@ class App extends Component {
  }
 
  render() {
+   const cardContainer = (
+   <CardContainer 
+   movies={this.state.movies}
+   updateSelection={this.updateSelection}
+   />
+   )
    return (
      <main>
       <Header />
-
-      <CardContainer 
-      movies={this.state.movies}
-      isCurrentMovie={this.updateSelection}
-      />
+      {this.state.currentSelectionId ? <MovieDisplay /> : cardContainer}
+      
      </main>
    )
  }
