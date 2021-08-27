@@ -1,38 +1,28 @@
 import './CardContainer.css';
-import Card from '../Card/Card'
-import React, { Component } from 'react';
+import Card from '../Card/Card';
 
-class CardContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedMovieId: null
-    }
-  }
 
-  updateSelection = (id) => {
-    this.setState({selectedMovieId: id})
-  }
-  //updateSelection method to setState on this.state.selectedMovieId to event.target.id
-  render() {
-    const cards = this.props.movies.map(movie => {
-      return (
-        <Card
-          updateSelection={this.updateSelection}
-          id={movie.id}
-          key={movie.id}
-          img={movie.poster_path}
-          title={movie.title}
-          rating={movie.average_rating}    
-        />
-      )
-    })
+const CardContainer = () => {
+  
+  const cards = this.props.movies.map(movie => {
+    return (
+      <Card
+        updateSelection={this.updateSelection}
+        id={movie.id}
+        key={movie.id}
+        img={movie.poster_path}
+        title={movie.title}
+        rating={movie.average_rating}    
+      />
+    )
+  })
+  
     return (
       <section className="CardContainer">
-        {cards}
+      { cards }
       </section>
     )
   }
-}
+
 
 export default CardContainer;
