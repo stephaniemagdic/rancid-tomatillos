@@ -48,7 +48,9 @@ class App extends Component {
    return (
      <main>
       <Header />
-      {this.state.currentSelectionId ? <MovieDisplay /> : cardContainer}
+      {this.state.currentSelectionId ? <MovieDisplay 
+        selectedMovie={this.state.dummyDisplay}
+      /> : cardContainer}
       
      </main>
    )
