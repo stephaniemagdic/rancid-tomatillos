@@ -1,6 +1,6 @@
 import './Card.css';
 
-const Card = ({updateSelection, id, img, title, rating}) => {
+const Card = ({ updateSelection, id, img, title, rating }) => {
     
   
 
