@@ -1,10 +1,18 @@
 import './MovieDisplay.css';
-// import MovieDetail from '../MovieDetail/MovieDetail';
+import MovieDetail from '../MovieDetail/MovieDetail';
 
-const MovieDisplay = () => {
+const MovieDisplay = (props) => {
+
 
   return (
-    <p>I'm a Movie Display!</p>
+    <section className='MovieDisplay' >
+      <img src={props.backdrop_path} alt={props.title} ></img>
+      <div className='backButton'>X</div>
+      <MovieDetail 
+        props={props}
+      />
+    </section>
+    
   )
 
 }
