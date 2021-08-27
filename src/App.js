@@ -38,6 +38,10 @@ class App extends Component {
   this.setState({currentSelectionId: id})
  }
 
+ clearSelection = () => {
+   this.setState({currentSelectionId: ''})
+ }
+
  render() {
    const cardContainer = (
    <CardContainer 
@@ -50,6 +54,7 @@ class App extends Component {
       <Header />
       {this.state.currentSelectionId ? <MovieDisplay 
         selectedMovie={this.state.dummyDisplay}
+        clearSelection={this.clearSelection}
       /> : cardContainer}
       
      </main>
