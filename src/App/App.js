@@ -5,6 +5,7 @@ import CardContainer from '../CardContainer/CardContainer';
 import MovieDisplay from '../MovieDisplay/MovieDisplay';
 // import MovieDetails from './MovieDetails/MovieDetails';
 import movieData from '../data/dummyData';
+import { fetchData } from '../util.js'
 
 
 class App extends Component {
@@ -32,6 +33,14 @@ class App extends Component {
 
  componentDidMount = () => {
    this.setState({movies: [...this.state.movies, ...movieData.movies]})
+  //.movies
+  // fetch the data with the endpoint of movies as an argument
+  // if there is a response then set the state at the key of movies to response.movies
+  // else if an error is thrown set the state at the key of error to error
+     // 500
+     // if there is an error in state, then render the server is down page using conditional rendering in our app.
+
+   
  }
 
  updateSelection = (id) => {
