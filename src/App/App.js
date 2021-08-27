@@ -1,10 +1,10 @@
 import './App.css';
 import React, { Component } from 'react';
-import Header from './Header/Header';
-import CardContainer from './CardContainer/CardContainer';
-import MovieDisplay from './MovieDisplay/MovieDisplay';
+import Header from '../Header/Header';
+import CardContainer from '../CardContainer/CardContainer';
+import MovieDisplay from '../MovieDisplay/MovieDisplay';
 // import MovieDetails from './MovieDetails/MovieDetails';
-import movieData from './data/dummyData';
+import movieData from '../data/dummyData';
 
 
 class App extends Component {
