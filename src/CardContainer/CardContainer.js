@@ -1,11 +1,13 @@
 import './CardContainer.css';
-import Card from '../Card/Card'
+import Card from '../Card/Card';
 
-const CardContainer = ({ movies }) => {
 
+const CardContainer = ({ movies, updateSelection }) => {
+  
   const cards = movies.map(movie => {
     return (
       <Card
+        updateSelection={updateSelection}
         id={movie.id}
         key={movie.id}
         img={movie.poster_path}
@@ -14,11 +16,13 @@ const CardContainer = ({ movies }) => {
       />
     )
   })
-  return (
-    <section className="CardContainer">
-      {cards}
-    </section>
-  )
-}
+  
+    return (
+      <section className="CardContainer">
+      { cards }
+      </section>
+    )
+  }
+
 
 export default CardContainer;

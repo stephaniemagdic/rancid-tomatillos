@@ -1,9 +1,16 @@
 import './Card.css';
 
-const Card = ({id, img, title, rating}) => {
+const Card = ({ updateSelection, id, img, title, rating }) => {
     
+  
+
   return(
-    <article className="Card" id={id} key={id}>
+    <article
+      className="Card" 
+      id={id} 
+      key={id} 
+      onClick={() => updateSelection(id)}
+      >
       <img src={img} alt={title}></img>
       <p>{rating}</p>
     </article>
