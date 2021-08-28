@@ -4,7 +4,7 @@ const ErrorDisplay = ({ errorMessage }) => {
 
 
   return (
-    <p>{errorMessage}</p>
+    <h2>{`${errorMessage}: Page not found`}</h2>
   )
 }
 
