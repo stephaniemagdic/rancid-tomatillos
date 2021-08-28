@@ -1,6 +1,6 @@
 import './Card.css';
 
-const Card = ({ updateSelection, fetchSelection, id, img, title, rating }) => {
+const Card = ({ fetchSelection, id, img, title, rating }) => {
     
   
 

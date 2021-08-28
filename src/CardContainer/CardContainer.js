@@ -2,12 +2,11 @@ import './CardContainer.css';
 import Card from '../Card/Card';
 
 
-const CardContainer = ({ movies, updateSelection, fetchSelection }) => {
+const CardContainer = ({ movies, fetchSelection }) => {
   
   const cards = movies.map(movie => {
     return (
       <Card
-        updateSelection={updateSelection}
         fetchSelection={fetchSelection}
         id={movie.id}
         key={movie.id}

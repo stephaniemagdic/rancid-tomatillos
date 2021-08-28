@@ -4,8 +4,6 @@ import Header from '../Header/Header';
 import CardContainer from '../CardContainer/CardContainer';
 import MovieDisplay from '../MovieDisplay/MovieDisplay';
 import ErrorDisplay from '../ErrorDisplay/ErrorDisplay';
-// import MovieDetails from './MovieDetails/MovieDetails';
-// import movieData from '../data/dummyData';
 import { fetchData } from '../util.js'
 
 
@@ -33,10 +31,6 @@ class App extends Component {
 
  }
 
-//  componentDidUpdate = () => {
-//    this.fetchSelection(this.state.currentSelectionId)
-//  }
-
  updateSelection = (id) => {
   this.setState({currentSelectionId: id})
  }
@@ -56,7 +50,6 @@ class App extends Component {
    const cardContainer = (
    <CardContainer 
     movies={this.state.movies}
-  //  updateSelection={this.updateSelection}
     fetchSelection={this.fetchSelection}
    />
    )
@@ -87,10 +80,5 @@ class App extends Component {
    )
  }
 }
-
-
-
-
-
 
 export default App;
