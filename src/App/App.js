@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 import CardContainer from '../CardContainer/CardContainer';
 import MovieDisplay from '../MovieDisplay/MovieDisplay';
 // import MovieDetails from './MovieDetails/MovieDetails';
-import movieData from '../data/dummyData';
+// import movieData from '../data/dummyData';
 import { fetchData } from '../util.js'
 
 
@@ -14,6 +14,7 @@ class App extends Component {
    this.state = {
      movies: [],
      currentSelectionId: null,
+     error: null,
      dummyDisplay: {
       id: 1, 
       title: "Fake Movie Title", 
@@ -32,16 +33,19 @@ class App extends Component {
  }
 
  componentDidMount = () => {
-   this.setState({movies: [...this.state.movies, ...movieData.movies]})
-  //.movies
-  // fetch the data with the endpoint of movies as an argument
-  // if there is a response then set the state at the key of movies to response.movies
+  fetchData('moves').then(data => {
+    this.setState({movies: [...this.state.movies, ...data.movies]})
+  }).catch((data) => {console.log("I made it to catch", data)
+})
+
+ //NOTE TO DO NEXT: SATURDAY PICK UP: SET STATE KEY of ERR to ERR in catch block
+//Then do not forget on line 36 to change fetchData('moves) to be fetchData('movies)
   // else if an error is thrown set the state at the key of error to error
      // 500
      // if there is an error in state, then render the server is down page using conditional rendering in our app.
 
-   
  }
+
 
  updateSelection = (id) => {
   this.setState({currentSelectionId: id})
