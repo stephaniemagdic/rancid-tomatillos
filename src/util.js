@@ -1,14 +1,16 @@
 const url = 'https://rancid-tomatillos.herokuapp.com/api/v2'
 
 export const fetchData = (endpoint) => {
-  return fetch(`${url}${endpoint}`).then((response) => checkForErrors(response)).catch(error => error)
-}
+  return fetch(`${url}/${endpoint}`).then((response) => 
+    checkForErrors(response)).catch(err => err)
+  }
 
 const checkForErrors = (response) => {
   if(response.ok) {
-    return response.json()
+    return response.json();
   } else {
-    console.log(response.status)
-    //would eventually help us display helpful error message
+    throw new Error(response.status)
+  
   }
-}
+} 
+
