@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Header from '../Header/Header';
 import CardContainer from '../CardContainer/CardContainer';
 import MovieDisplay from '../MovieDisplay/MovieDisplay';
+import ErrorDisplay from '../ErrorDisplay/ErrorDisplay';
 // import MovieDetails from './MovieDetails/MovieDetails';
 // import movieData from '../data/dummyData';
 import { fetchData } from '../util.js'
@@ -35,12 +36,11 @@ class App extends Component {
  componentDidMount = () => {
   fetchData('moves').then(data => {
     this.setState({movies: [...this.state.movies, ...data.movies]})
-  }).catch((data) => {console.log("I made it to catch", data)
-})
+  }).catch((data) => this.setState({error: data.message}))
+  // The above .catch is setting our state, however the react dev tools simply shows it as an empty object. We should revisit this after we make our error display component. 
 
  //NOTE TO DO NEXT: SATURDAY PICK UP: SET STATE KEY of ERR to ERR in catch block
 //Then do not forget on line 36 to change fetchData('moves) to be fetchData('movies)
-  // else if an error is thrown set the state at the key of error to error
      // 500
      // if there is an error in state, then render the server is down page using conditional rendering in our app.
 
@@ -62,14 +62,29 @@ class App extends Component {
    updateSelection={this.updateSelection}
    />
    )
+  
+   const mainPage = (
+    <main>
+    <Header />
+    {this.state.currentSelectionId ? <MovieDisplay 
+      selectedMovie={this.state.dummyDisplay}
+      clearSelection={this.clearSelection}
+    /> : cardContainer}
+   </main>
+   )
+    
+   const errorPage = (
+     <main>
+       <Header />
+       <ErrorDisplay 
+         errorMessage={this.state.error}
+       />
+     </main>
+   )
+
    return (
      <main>
-      <Header />
-      {this.state.currentSelectionId ? <MovieDisplay 
-        selectedMovie={this.state.dummyDisplay}
-        clearSelection={this.clearSelection}
-      /> : cardContainer}
-      
+       { this.state.error ? errorPage : mainPage } 
      </main>
    )
  }
