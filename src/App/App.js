@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import Header from '../Header/Header';
 import CardContainer from '../CardContainer/CardContainer';
 import MovieDisplay from '../MovieDisplay/MovieDisplay';
-// import MovieDetails from './MovieDetails/MovieDetails';
-// import movieData from '../data/dummyData';
+import ErrorDisplay from '../ErrorDisplay/ErrorDisplay';
 import { fetchData } from '../util.js'
 
 
@@ -15,69 +14,71 @@ class App extends Component {
      movies: [],
      currentSelectionId: null,
      error: null,
-     dummyDisplay: {
-      id: 1, 
-      title: "Fake Movie Title", 
-      poster_path: "https://image.tmdb.org/t/p/original//7G2VvG1lU8q758uOqU6z2Ds0qpA.jpg", 
-      backdrop_path: "https://image.tmdb.org/t/p/original//oazPqs1z78LcIOFslbKtJLGlueo.jpg", 
-      release_date: "2019-12-04", 
-      overview: "Some overview that is full of buzzwords to attempt to entice you to watch this movie! Explosions! Drama! True love! Robots! A cute dog!", 
-      average_rating: 6, 
-      genres: ["Drama"], 
-      budget:63000000, 
-      revenue:100853753, 
-      runtime:139, 
-      tagline: "It's a movie!" 
-      }   
+     selectedMovie: null
    }
  }
 
  componentDidMount = () => {
-  fetchData('moves').then(data => {
+  fetchData('movies').then(data => {
     this.setState({movies: [...this.state.movies, ...data.movies]})
-  }).catch((data) => {console.log("I made it to catch", data)
-})
+  }).catch((data) => this.setState({error: data.message}))
+  // The above .catch is setting our state, however the react dev tools simply shows it as an empty object. We should revisit this after we make our error display component. 
 
  //NOTE TO DO NEXT: SATURDAY PICK UP: SET STATE KEY of ERR to ERR in catch block
 //Then do not forget on line 36 to change fetchData('moves) to be fetchData('movies)
-  // else if an error is thrown set the state at the key of error to error
      // 500
      // if there is an error in state, then render the server is down page using conditional rendering in our app.
 
  }
 
-
  updateSelection = (id) => {
   this.setState({currentSelectionId: id})
  }
 
+ fetchSelection = (id) => {
+  fetchData(`movies/${id}`)
+  .then(data => {
+    this.setState({selectedMovie: data.movie})
+  })
+ }
+
  clearSelection = () => {
-   this.setState({currentSelectionId: ''})
+   this.setState({selectedMovie: null})
  }
 
  render() {
    const cardContainer = (
    <CardContainer 
-   movies={this.state.movies}
-   updateSelection={this.updateSelection}
+    movies={this.state.movies}
+    fetchSelection={this.fetchSelection}
    />
    )
+  
+   const mainPage = (
+    <main>
+    <Header />
+    {this.state.selectedMovie ? <MovieDisplay 
+      selectedMovie={this.state.selectedMovie}
+      clearSelection={this.clearSelection}
+    /> : cardContainer}
+   </main>
+   )
+    
+   const errorPage = (
+     <main>
+       <Header />
+       <ErrorDisplay 
+         errorMessage={this.state.error}
+       />
+     </main>
+   )
+
    return (
      <main>
-      <Header />
-      {this.state.currentSelectionId ? <MovieDisplay 
-        selectedMovie={this.state.dummyDisplay}
-        clearSelection={this.clearSelection}
-      /> : cardContainer}
-      
+       { this.state.error ? errorPage : mainPage } 
      </main>
    )
  }
 }
-
-
-
-
-
 
 export default App;

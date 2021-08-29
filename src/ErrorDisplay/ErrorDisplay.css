@@ -1,0 +1,15 @@
+h2 {
+  text-align: center;
+  font-size:xx-large
+}
+
+img {
+  height: 50vh;
+  width: auto;
+}
+
+.errorDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
