@@ -1,5 +1,5 @@
 import './ErrorDisplay.css';
-import icon from './browser.png';
+import icon from '../Assets/browser.png';
 
 const ErrorDisplay = ({ errorMessage }) => {
 
