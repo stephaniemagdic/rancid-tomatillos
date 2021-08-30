@@ -1,11 +1,4 @@
 describe('Dashboard User Flows', () => {
-
-  describe('Feedback Loop login flows', () => {
-    it('Should confirm that true is equal to true', () => {
-      expect(true).to.equal(true)
-    });
-  });
-
   beforeEach(() => {
     cy.visit('http://localhost:3000');
   });
