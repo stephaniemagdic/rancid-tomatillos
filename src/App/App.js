@@ -24,11 +24,6 @@ class App extends Component {
   }).catch((data) => this.setState({error: data.message}))
   // The above .catch is setting our state, however the react dev tools simply shows it as an empty object. We should revisit this after we make our error display component. 
 
- //NOTE TO DO NEXT: SATURDAY PICK UP: SET STATE KEY of ERR to ERR in catch block
-//Then do not forget on line 36 to change fetchData('moves) to be fetchData('movies)
-     // 500
-     // if there is an error in state, then render the server is down page using conditional rendering in our app.
-
  }
 
  updateSelection = (id) => {
