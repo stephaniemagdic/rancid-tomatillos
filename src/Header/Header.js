@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header>
       <h1>
-        ROTTEN TOMATILLOS
+        RANCID TOMATILLOS
       </h1>
     </header>
   )
