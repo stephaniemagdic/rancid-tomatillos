@@ -1,23 +1,35 @@
 import './MovieDisplay.css';
 import MovieDetail from '../MovieDetail/MovieDetail';
+import { Component } from 'react';
 
 
-const MovieDisplay = (props) => {
+class MovieDisplay extends Component {
+  constructor() {
+    super();
+    this.state = {
+      selectedMovie: null,
+      isLoading: false
+    }
+  }
 
-  return (
-    <section className='MovieDisplay' >
-      <img src={props.selectedMovie.backdrop_path} alt={props.selectedMovie.title}></img>
-      <div 
-        className='backButton' 
-        onClick={()=> props.clearSelection()}
-        >GO BACK
-      </div>
-      <MovieDetail 
-        details={props.selectedMovie}
-      />
-    </section>
-    
-  )
+
+  render() {
+    return (
+      <p>I'm a movie display!</p>
+      // <section className='MovieDisplay' >
+      //   <img src={} alt={}></img>
+      //   <div 
+      //     className='backButton' 
+      //    // make this a redirect back to main
+      //     >GO BACK
+      //   </div>
+      //   <MovieDetail 
+      //     details={}
+      //   />
+      // </section>
+      
+    )
+  }
 
 }
 
