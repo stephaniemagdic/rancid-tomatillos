@@ -4,7 +4,8 @@ import Header from '../Header/Header';
 import CardContainer from '../CardContainer/CardContainer';
 import MovieDisplay from '../MovieDisplay/MovieDisplay';
 import ErrorDisplay from '../ErrorDisplay/ErrorDisplay';
-import { fetchData } from '../util.js'
+import { fetchData } from '../util.js';
+import { Route, NavLink } from 'react-router-dom';
 
 
 class App extends Component {
@@ -26,16 +27,16 @@ class App extends Component {
 
  }
 
- updateSelection = (id) => {
-  this.setState({currentSelectionId: id})
- }
+//  updateSelection = (id) => {
+//   this.setState({currentSelectionId: id})
+//  }
 
- fetchSelection = (id) => {
-  fetchData(`movies/${id}`)
-  .then(data => {
-    this.setState({selectedMovie: data.movie})
-  })
- }
+//  fetchSelection = (id) => {
+//   fetchData(`movies/${id}`)
+//   .then(data => {
+//     this.setState({selectedMovie: data.movie})
+//   })
+//  }
 
  clearSelection = () => {
    this.setState({selectedMovie: null})
@@ -67,10 +68,24 @@ class App extends Component {
        />
      </main>
    )
+// we will have 3 routes: a route for the root that displays all movies, a dynamic route for the movie display, and an error display route
 
    return (
      <main>
-       { this.state.error ? errorPage : mainPage } 
+      <Route exact path="/" render={ () => {
+        return <CardContainer 
+          movies={this.state.movies}
+          fetchSelection={this.fetchSelection}
+        />
+      }}
+       />
+      <Route exact path="/movies/:id" render={ ({ match }) => {
+        console.log(match);
+        return <MovieDisplay 
+            id={match.params.id}
+        />
+      }}
+      />
      </main>
    )
  }
