@@ -7,7 +7,6 @@ const ErrorDisplay = ({ errorMessage }) => {
 
   return (
     <main>
-      <Header />
       <section className="errorDisplay">
         <h2>{`${errorMessage}: Page not found`}</h2>
         <img src={icon} alt='error icon'></img>
