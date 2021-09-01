@@ -43,31 +43,31 @@ class App extends Component {
  }
 
  render() {
-   const cardContainer = (
-   <CardContainer 
-    movies={this.state.movies}
-    fetchSelection={this.fetchSelection}
-   />
-   )
+  //  const cardContainer = (
+  //  <CardContainer 
+  //   movies={this.state.movies}
+  //   fetchSelection={this.fetchSelection}
+  //  />
+  //  )
   
-   const mainPage = (
-    <main>
-    <Header />
-    {this.state.selectedMovie ? <MovieDisplay 
-      selectedMovie={this.state.selectedMovie}
-      clearSelection={this.clearSelection}
-    /> : cardContainer}
-   </main>
-   )
+  //  const mainPage = (
+  //   <main>
+  //   <Header />
+  //   {this.state.selectedMovie ? <MovieDisplay 
+  //     selectedMovie={this.state.selectedMovie}
+  //     clearSelection={this.clearSelection}
+  //   /> : cardContainer}
+  //  </main>
+  //  )
     
-   const errorPage = (
-     <main>
-       <Header />
-       <ErrorDisplay 
-         errorMessage={this.state.error}
-       />
-     </main>
-   )
+  //  const errorPage = (
+  //    <main>
+  //      <Header />
+  //      <ErrorDisplay 
+  //        errorMessage={this.state.error}
+  //      />
+  //    </main>
+  //  )
 // we will have 3 routes: a route for the root that displays all movies, a dynamic route for the movie display, and an error display route
 
    return (

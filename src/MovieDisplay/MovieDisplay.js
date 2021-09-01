@@ -1,5 +1,6 @@
 import './MovieDisplay.css';
 import MovieDetail from '../MovieDetail/MovieDetail';
+import Header from '../Header/Header';
 import { fetchData } from '../util.js';
 import { Component } from 'react';
 
@@ -42,6 +43,7 @@ class MovieDisplay extends Component {
 
     return (
       <div >
+        <Header />
         {this.state.isLoading && <p>loading, please wait</p>}
         {!this.state.isLoading && movie}
       </div>

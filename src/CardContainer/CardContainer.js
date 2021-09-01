@@ -1,5 +1,6 @@
 import './CardContainer.css';
 import Card from '../Card/Card';
+import Header from '../Header/Header';
 
 
 const CardContainer = ({ movies, fetchSelection }) => {
@@ -18,8 +19,11 @@ const CardContainer = ({ movies, fetchSelection }) => {
   })
   
     return (
-      <section className="CardContainer">
-      { cards }
+      <section >
+        <Header />
+        <section className="CardContainer">
+        { cards }
+        </section>
       </section>
     )
   }
