@@ -33,7 +33,6 @@ class MovieDisplay extends Component {
         <Link to="/">
           <div 
             className='backButton' 
-        // make this a redirect back to main
           >GO BACK
           </div>
         </Link>
