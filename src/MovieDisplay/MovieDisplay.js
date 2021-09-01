@@ -3,6 +3,7 @@ import MovieDetail from '../MovieDetail/MovieDetail';
 import Header from '../Header/Header';
 import { fetchData } from '../util.js';
 import { Component } from 'react';
+import  ErrorDisplay from '../ErrorDisplay/ErrorDisplay';
 
 
 class MovieDisplay extends Component {
@@ -12,6 +13,7 @@ class MovieDisplay extends Component {
     this.state = {
       selectedMovie: {},
       isLoading: true,
+      err: null
     };
   }
 
@@ -20,7 +22,7 @@ class MovieDisplay extends Component {
       .then((data) => {
         this.setState({selectedMovie: data.movie, isLoading: false})
       })
-      .catch(err => console.log('err', err));
+      .catch((err) => this.setState({err, isLoading:false}));
   }
 
 
@@ -45,7 +47,8 @@ class MovieDisplay extends Component {
       <div >
         <Header />
         {this.state.isLoading && <p>loading, please wait</p>}
-        {!this.state.isLoading && movie}
+        {(!this.state.isLoading && !this.state.err) && movie}
+        {this.state.err && <ErrorDisplay errorMessage={this.state.err}/>}
       </div>
     )
   }
