@@ -26,12 +26,14 @@ class MovieDisplay extends Component {
   render() {
     const movie = (
       <section className='MovieDisplay' >
-        <img src={this.state.selectedMovie.backdrop_path} alt={this.state.selectedMovie.title}></img>
         <div 
           className='backButton' 
       // make this a redirect back to main
         >GO BACK
         </div>
+        <div className="imageContainer" >
+          <img src={this.state.selectedMovie.backdrop_path} alt={this.state.selectedMovie.title} />
+        </div> 
         <MovieDetail 
          details={this.state.selectedMovie}
         />

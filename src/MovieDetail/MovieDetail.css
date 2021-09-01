@@ -1,0 +1,17 @@
+.movieDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #808080cf;
+  width: 90vw;
+  padding: 1em;
+  margin: -74vh 0;
+  z-index: 2;
+  position: absolute;
+  border-radius: 5px;
+}
+
+.movieDetail > h2 {
+  margin: 4px 0;
+  text-align: left;
+}
