@@ -81,9 +81,7 @@ class App extends Component {
        />
       <Route exact path="/movies/:id" render={ ({ match }) => {
         console.log(match);
-        return <MovieDisplay 
-            id={match.params.id}
-        />
+        return <MovieDisplay { ...match } />
       }}
       />
      </main>
