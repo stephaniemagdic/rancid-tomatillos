@@ -13,7 +13,7 @@ const Card = ({ fetchSelection, id, img, title, rating }) => {
         key={id} 
         >
         <img src={img} alt={title}></img>
-        <p>{rating}</p>
+        <p>{`Rating: ${rating.toFixed(2)}`}</p>
       </article>
     </Link>
     )
