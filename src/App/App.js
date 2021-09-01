@@ -5,7 +5,7 @@ import CardContainer from '../CardContainer/CardContainer';
 import MovieDisplay from '../MovieDisplay/MovieDisplay';
 import ErrorDisplay from '../ErrorDisplay/ErrorDisplay';
 import { fetchData } from '../util.js';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Switch } from 'react-router-dom';
 
 
 class App extends Component {
@@ -71,20 +71,26 @@ class App extends Component {
 // we will have 3 routes: a route for the root that displays all movies, a dynamic route for the movie display, and an error display route
 
    return (
-     <main>
-      <Route exact path="/" render={ () => {
-        return <CardContainer 
-          movies={this.state.movies}
-          fetchSelection={this.fetchSelection}
-        />
-      }}
-       />
-      <Route exact path="/movies/:id" render={ ({ match }) => {
-        console.log(match);
-        return <MovieDisplay { ...match } />
-      }}
-      />
+      <main>
+        <Switch>
+          <Route exact path="/" render={ () => {
+            return <CardContainer 
+              movies={this.state.movies}
+              fetchSelection={this.fetchSelection}
+            />
+          }}
+          />
+          <Route exact path="/movies/:id" render={ ({ match }) => {
+            console.log(match);
+            return <MovieDisplay { ...match } />
+          }}
+          />
+          <Route render={() => <ErrorDisplay />}
+          />
+         {/* To Do: Make error display more dynamic so that it either renders page not found for 404 or server down for 500 */}
+        </Switch>
      </main>
+    
    )
  }
 }
