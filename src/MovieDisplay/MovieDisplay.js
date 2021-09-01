@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import { fetchData } from '../util.js';
 import { Component } from 'react';
 import  ErrorDisplay from '../ErrorDisplay/ErrorDisplay';
+import { Link } from 'react-router-dom';
 
 
 class MovieDisplay extends Component {
@@ -29,11 +30,13 @@ class MovieDisplay extends Component {
   render() {
     const movie = (
       <section className='MovieDisplay' >
-        <div 
-          className='backButton' 
-      // make this a redirect back to main
-        >GO BACK
-        </div>
+        <Link to="/">
+          <div 
+            className='backButton' 
+        // make this a redirect back to main
+          >GO BACK
+          </div>
+        </Link>
         <div className="imageContainer" >
           <img src={this.state.selectedMovie.backdrop_path} alt={this.state.selectedMovie.title} />
         </div> 
