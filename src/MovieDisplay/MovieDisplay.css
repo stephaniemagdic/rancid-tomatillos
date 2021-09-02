@@ -1,0 +1,17 @@
+.imgContainer {
+  display: flex;
+}
+
+.imageContainer > img {
+  height: 99vh;
+  width: 99vw;
+  object-fit: cover;
+}
+
+.backButton {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 10px -50px;
+  z-index: 3;
+  position: relative;
+}
