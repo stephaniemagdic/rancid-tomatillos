@@ -4,6 +4,7 @@ export const fetchData = (endpoint) => {
   return fetch(`${url}/${endpoint}`)
   .then((response) => checkForErrors(response))
     .then(data => {
+      console.log("fetch data", data)
       return data
     })
   }
