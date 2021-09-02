@@ -1,6 +1,6 @@
 describe('Movie Details User Flows', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3001');
+    cy.visit('http://localhost:3001/');
   });
 
   it('When a user clicks on a movie card they should be taken to a new page with the movies details', () => {
@@ -29,17 +29,13 @@ describe('Movie Details User Flows', () => {
   })
 
   it('User should be able to click the back button icon and be taken back to the main page', () => {
-
+    cy.visit('http://localhost:3001/movies/694919')
+    cy.get('.backButton').click().url().should('not.include', 'movies')
   })
 
-    //Test back button user flow//brings us back to the url we expect
- 
-
-  it('If user alters an undefined url path, it should bring them to an error display page', () => {
-    
+  it('If user alters a url path to an undefined path, it should bring them to an error display page', () => {
+    cy.visit('http://localhost:3001/hotdogs')
+    .get('h2').contains('Page not found')
   })
-
-   //Test error page rendering //for server failure //this will have its own route //BAD REQUEST
- 
 });
 
