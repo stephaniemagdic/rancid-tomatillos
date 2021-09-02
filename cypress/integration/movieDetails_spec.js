@@ -1,11 +1,10 @@
 describe('Movie Details User Flows', () => {
-
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
+    cy.visit('http://localhost:3001');
   });
 
-  it('Should display the selected movies details', () => {
-    cy.intercept('GET', '/694919', {
+  it('When a user clicks on a movie card they should be taken to a new page with the movies details', () => {
+    cy.intercept('GET', 'movies/694919', {
       statusCode: 201,
       body: {
         "id":694919,
@@ -22,18 +21,25 @@ describe('Movie Details User Flows', () => {
         "average_rating":6.142857142857143
       }
     })
-
+    cy.get('h1').contains('RANCID TOMATILLOS')
     .get('#694919').click()
-    //should have url with this id. //.url().should('include', '/694919')
+    .url().should('include', '/movies/694919')
     .get('article').contains('Money Plane')
-    .contains('article').contains("A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.")
+    .get('article').contains("A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.")
+  })
+
+  it('User should be able to click the back button icon and be taken back to the main page', () => {
 
   })
 
-  //Test error page rendering //for server failure //this will have its own route
+    //Test back button user flow//brings us back to the url we expect
+ 
 
+  it('If user alters an undefined url path, it should bring them to an error display page', () => {
+    
+  })
 
-  //Test back button user flow
+   //Test error page rendering //for server failure //this will have its own route //BAD REQUEST
  
 });
 
