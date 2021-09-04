@@ -3,12 +3,11 @@ import Card from '../Card/Card';
 import Header from '../Header/Header';
 
 
-const CardContainer = ({ movies, fetchSelection }) => {
+const CardContainer = ({ movies }) => {
   
   const cards = movies.map(movie => {
     return (
       <Card
-        fetchSelection={fetchSelection}
         id={movie.id}
         key={movie.id}
         img={movie.poster_path}
