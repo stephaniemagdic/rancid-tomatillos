@@ -10,9 +10,19 @@ export const fetchData = (url) => {
   }
 
 export const postData = (dataObject) => {
-  console.log('inside postData function', dataObject)
   return fetch(`http://localhost:3002/api/v1/favoritesList`, {
     method: 'POST',
+    body: JSON.stringify(dataObject),
+    headers: {
+      'Content-type': 'application/json'
+    }
+  })
+}
+
+export const deleteData = (dataObject) => {
+  console.log('In fetch for delete >', dataObject);
+  return fetch('http://localhost:3002/api/v1/favoritesList', {
+    method: 'DELETE',
     body: JSON.stringify(dataObject),
     headers: {
       'Content-type': 'application/json'

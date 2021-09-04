@@ -1,7 +1,7 @@
 import './MovieDisplay.css';
 import MovieDetail from '../MovieDetail/MovieDetail';
 import Header from '../Header/Header';
-import { fetchData, postData } from '../util.js';
+import { fetchData, postData, deleteData } from '../util.js';
 import { Component } from 'react';
 import  ErrorDisplay from '../ErrorDisplay/ErrorDisplay';
 import { Link } from 'react-router-dom';
@@ -31,6 +31,11 @@ class MovieDisplay extends Component {
     this.props.getFavorites();
   }
 
+  removeFromFavorites = () => {
+    deleteData(this.state.selectedMovie.id)
+    this.props.getFavorites();
+  }
+
   render() {
     const movie = (
       <section className='MovieDisplay' >
@@ -51,6 +56,12 @@ class MovieDisplay extends Component {
             this.addToFavorites();
           }}
         >add to favorites
+        </button>
+        <button
+          onClick={ () => {
+            this.removeFromFavorites();
+          }}
+        >remove from favorites
         </button>
       </section>
     )
