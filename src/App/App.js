@@ -25,15 +25,11 @@ class App extends Component {
   }).catch((data) => this.setState({error: data.message}))
   //To Do: The above .catch is setting our state, however the react dev tools simply shows it as an empty object. We should revisit this after we make our error display component. 
   this.getFavorites();
-  // Lets make sure to revisit this as we build our express server
  }
 
-//  componentDidUpdate = (prevState) => {
-//   const favoriteMovies = 'http://localhost:3002/api/v1/favoritesList'
-//   if (this.state.favorites !== prevState.favorites) {
-//     fetchData(favoriteMovies);
+//   componentDidUpdate = (prevState) => {
+ 
 //  }
-// }
 
   getFavorites = () => {
     const favoriteMovies = 'http://localhost:3002/api/v1/favoritesList'
@@ -60,7 +56,9 @@ class App extends Component {
           }}
           />
           <Route exact path="/Favorites" render={ () => {
-            return <Favorites />
+            return <Favorites 
+              favorites={this.state.favorites}
+            />
           }}
           />
           <Route render={() => <ErrorDisplay />}
