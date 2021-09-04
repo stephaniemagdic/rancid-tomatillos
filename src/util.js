@@ -1,7 +1,7 @@
-const url = 'https://rancid-tomatillos.herokuapp.com/api/v2'
+// const url = 'https://rancid-tomatillos.herokuapp.com/api/v2'
 
-export const fetchData = (endpoint) => {
-  return fetch(`${url}/${endpoint}`)
+export const fetchData = (url) => {
+  return fetch(url)
   .then((response) => checkForErrors(response))
     .then(data => {
       console.log("fetch data", data)

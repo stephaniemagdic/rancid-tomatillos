@@ -19,7 +19,7 @@ class MovieDisplay extends Component {
   }
 
   componentDidMount = () => {
-    fetchData(`movies/${this.params.id}`)
+    fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.params.id}`)
       .then((data) => {
         this.setState({selectedMovie: data.movie, isLoading: false})
       })
