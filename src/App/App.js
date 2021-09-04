@@ -19,12 +19,29 @@ class App extends Component {
 
  componentDidMount = () => {
   const allMovies = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
+
   fetchData(allMovies).then(data => {
     this.setState({movies: [...this.state.movies, ...data.movies]})
   }).catch((data) => this.setState({error: data.message}))
   //To Do: The above .catch is setting our state, however the react dev tools simply shows it as an empty object. We should revisit this after we make our error display component. 
-
+  this.getFavorites();
+  // Lets make sure to revisit this as we build our express server
  }
+
+//  componentDidUpdate = (prevState) => {
+//   const favoriteMovies = 'http://localhost:3002/api/v1/favoritesList'
+//   if (this.state.favorites !== prevState.favorites) {
+//     fetchData(favoriteMovies);
+//  }
+// }
+
+  getFavorites = () => {
+    const favoriteMovies = 'http://localhost:3002/api/v1/favoritesList'
+
+    fetchData(favoriteMovies).then(data => {
+      this.setState({favorites: [...data]})
+    }).catch((data) => this.setState({error: data.message}))
+  }
 
  render() {
    return (
@@ -37,8 +54,9 @@ class App extends Component {
           }}
           />
           <Route exact path="/movies/:id" render={ ({ match }) => {
-            console.log(match);
-            return <MovieDisplay { ...match } />
+            return <MovieDisplay { ...match } 
+              getFavorites={this.getFavorites}
+            />
           }}
           />
           <Route exact path="/Favorites" render={ () => {
