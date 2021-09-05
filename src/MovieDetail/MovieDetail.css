@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #808080cf;
-  width: 90vw;
-  padding: 1em;
-  margin: -74vh 0;
-  z-index: 2;
-  position: absolute;
-  border-radius: 5px;
+  background: linear-gradient(0deg, rgba(0,0,0,0.9402135854341737) 31%, rgba(0,0,0,0.665703781512605) 87%, rgba(0,0,0,0) 100%);
+  color: white;
+  padding: 1.3em;
+  margin: -59vh 0;
+  z-index: 0;
+  position: relative;
+
 }
 
 .movieDetail > h2 {
