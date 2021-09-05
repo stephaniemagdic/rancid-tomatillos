@@ -1,6 +1,5 @@
 import './ErrorDisplay.css';
 import icon from '../Assets/browser.png';
-import Header from '../Header/Header';
 import { Link } from 'react-router-dom';
 
 const ErrorDisplay = ({ errorMessage }) => {
@@ -12,14 +11,14 @@ const ErrorDisplay = ({ errorMessage }) => {
     displayText = 'Server Error'
   } else if (!errorMessage) {
     displayText = 'Page Not Found'
-    button = <Link to="/"><button>TAKE ME TO RANCID TOMATILLOS HOMEPAGE</button></Link>
+    button = <Link to="/"><button>TAKE ME TO RANCID TOMATILLOS</button></Link>
   }
 
   return (
     <main>
       <section className="errorDisplay">
         <h2>{displayText}</h2>
-        {button && button}
+        {button}
         <img src={icon} alt='error icon'></img>
       </section>
     </main>
