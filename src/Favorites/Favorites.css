@@ -5,3 +5,11 @@
   align-items: center;
   justify-content: space-between;
 }
+
+#findFavBtn {
+  background-color: #AB2300;
+}
+
+#findFavBtn:hover {
+  background-color: #7b1a01;
+}
