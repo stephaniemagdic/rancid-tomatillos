@@ -13,6 +13,7 @@ class MovieDisplay extends Component {
     this.params = props.params;
     this.state = {
       selectedMovie: {},
+      isFavorite: false,
       isLoading: true,
       err: null
     };
@@ -22,18 +23,20 @@ class MovieDisplay extends Component {
     fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.params.id}`)
       .then((data) => {
         this.setState({selectedMovie: data.movie, isLoading: false})
+      }).then(() => {
+        if (this.props.checkFavorites(this.state.selectedMovie.id)) {
+          this.setState({isFavorite: true})
+        }
       })
       .catch((err) => this.setState({err, isLoading:false}));
   }
 
-  //these needed to be chained.
   addToFavorites = () => {
-    postData(this.state.selectedMovie).then(() => this.props.getFavorites())
+    postData(this.state.selectedMovie).then(() => this.props.getFavorites());
   }
 
   removeFromFavorites = () => {
-    deleteData(this.state.selectedMovie.id).then(() => this.props.getFavorites())
-    // deleteData('delete').then(() => this.props.getFavorites())
+    deleteData(this.state.selectedMovie.id).then(() => this.props.getFavorites());
   }
 
   render() {
@@ -51,18 +54,24 @@ class MovieDisplay extends Component {
         <MovieDetail 
          details={this.state.selectedMovie}
         />
-        <button
+        {!this.state.isFavorite && (
+          <button
           onClick={ () => {
             this.addToFavorites();
+            this.setState({isFavorite: true});
           }}
         >add to favorites
         </button>
-        <button
+        )}
+        {this.state.isFavorite && (
+          <button
           onClick={ () => {
             this.removeFromFavorites();
+            this.setState({isFavorite: false});
           }}
         >remove from favorites
         </button>
+        )} 
       </section>
     )
 
@@ -75,7 +84,6 @@ class MovieDisplay extends Component {
       </div>
     )
   }
-
 }
 
 export default MovieDisplay;
