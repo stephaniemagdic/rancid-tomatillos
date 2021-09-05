@@ -13,7 +13,7 @@ const Card = ({ id, img, title, rating }) => {
         key={id} 
         >
         <img src={img} alt={title}></img>
-        <p>{`Rating: ${rating.toFixed(2)}`}</p>
+        <p>{`★ ${rating.toFixed(1)}/10`}</p>
       </article>
     </Link>
     )
