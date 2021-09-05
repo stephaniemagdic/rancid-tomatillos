@@ -22,14 +22,14 @@ class App extends Component {
 
   fetchData(allMovies).then(data => {
     this.setState({movies: [...this.state.movies, ...data.movies]})
-  }).catch((data) => this.setState({error: data.message}))
+  }).catch((err) => {
+    console.log('ERROR', err)
+    this.setState({error: err.message})
+  }
+  )
   //To Do: The above .catch is setting our state, however the react dev tools simply shows it as an empty object. We should revisit this after we make our error display component. 
   this.getFavorites();
  }
-
-//   componentDidUpdate = (prevState) => {
- 
-//  }
 
   getFavorites = () => {
     const favoriteMovies = 'http://localhost:3002/api/v1/favoritesList'
@@ -61,9 +61,8 @@ class App extends Component {
             />
           }}
           />
-          <Route render={() => <ErrorDisplay />}
+          <Route render={() => <ErrorDisplay errorMessage={this.state.error}/>}
           />
-         {/* To Do: Make error display more dynamic so that it either renders page not found for 404 or server down for 500 */}
         </Switch>
      </main>
    )
