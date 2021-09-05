@@ -4,7 +4,7 @@ export const fetchData = (url) => {
   return fetch(url)
   .then((response) => checkForErrors(response))
     .then(data => {
-      console.log("fetch data", data)
+      console.log("fetch data in fetch all data", data, "for this url", url)
       return data
     })
   }
@@ -19,15 +19,21 @@ export const postData = (dataObject) => {
   })
 }
 
-export const deleteData = (dataObject) => {
-  console.log('In fetch for delete >', dataObject);
+
+export const deleteData = (id) => {
+  console.log('In fetch for delete data --->', id);
   return fetch('http://localhost:3002/api/v1/favoritesList', {
     method: 'DELETE',
-    body: JSON.stringify(dataObject),
+    //commenting out the body fixes it the unfound fetch.
+ 
+    body: JSON.stringify({id}),
+
     headers: {
-      'Content-type': 'application/json'
+      'Content-type': 'application/json',
+      // 'Access-Control-Allow-Origin': *
     }
-  })
+  }).then((data) => console.log("deleteData", data))
+  .catch((err) => console.log("id error", err))
 }
 
 const checkForErrors = (response) => {
