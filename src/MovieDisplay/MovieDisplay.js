@@ -6,7 +6,6 @@ import { Component } from 'react';
 import  ErrorDisplay from '../ErrorDisplay/ErrorDisplay';
 import { Link } from 'react-router-dom';
 
-
 class MovieDisplay extends Component {
   constructor(props) {
     super(props);
@@ -26,14 +25,12 @@ class MovieDisplay extends Component {
       .catch((err) => this.setState({err, isLoading:false}));
   }
 
-  //these needed to be chained.
   addToFavorites = () => {
     postData(this.state.selectedMovie).then(() => this.props.getFavorites())
   }
 
   removeFromFavorites = () => {
     deleteData(this.state.selectedMovie.id).then(() => this.props.getFavorites())
-    // deleteData('delete').then(() => this.props.getFavorites())
   }
 
   render() {
@@ -52,12 +49,14 @@ class MovieDisplay extends Component {
          details={this.state.selectedMovie}
         />
         <button
+          className="addMovie"
           onClick={ () => {
             this.addToFavorites();
           }}
         >add to favorites
         </button>
         <button
+          className="deleteButton"
           onClick={ () => {
             this.removeFromFavorites();
           }}
