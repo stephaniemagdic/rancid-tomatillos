@@ -1,5 +1,5 @@
 import './Header.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -9,9 +9,31 @@ const Header = () => {
           RANCID TOMATILLOS
         </h1>
       </Link>
-      <Link to="/Favorites">
-        <h3>Favorites</h3>
-      </Link>
+      <div id="linkContainer">
+        <NavLink 
+          exact to="/"
+          activeStyle={{
+            fontWeight: "bolder",
+            textDecoration: "underline",
+            textDecorationColor: "#AB2300"
+          }}
+          >
+          <h3 
+          className="headerLink"
+          >Home
+          </h3>
+        </NavLink>
+        <NavLink 
+          exact to="/Favorites"
+          activeStyle={{
+            fontWeight: "bolder",
+            textDecoration: "underline",
+            textDecorationColor: "#AB2300"
+          }}>
+          <h3 className="headerLink"
+          >Favorites</h3>
+        </NavLink>
+      </div>
     </header>
   )
 }

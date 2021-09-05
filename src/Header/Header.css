@@ -1,10 +1,33 @@
 header {
-  background-color: rgb(62, 62, 62);
+  background-color: #e3e2df;;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+  z-index: 3;
+  position: relative;
 }
 
 h1 {
   margin-left: 1vw;
+}
+
+h3 {
+  color: #AB2300;
+}
+
+#linkContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+}
+
+.headerLink {
+  margin: 0 30px;
+}
+
+.headerLink:hover {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+
 }
