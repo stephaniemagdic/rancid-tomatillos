@@ -33,11 +33,13 @@ describe('Movie Details User Flows', () => {
     cy.get('.backButton').click().url().should('not.include', 'movies')
   })
 
+   //TO do, once merged test that the button is disabled.
+  it('When a user clicks on the add button, they should see the button has been text has changed to remove from favorites', () => {
+  })
   
 
-  //TO do, once merged test that the button is disabled.
-  //here testing our express microservice new api.
-  it('When a user clicks on the add button, they should see the button has been disabled and the text has changed to remove from favorites, ', () => {
+    //TO Do: need to change this based on the merge** button will not be last.
+  it('A user should be able to click on the add or remove from favorites button to add or remove a movie to their favorites list, ', () => {
     cy.intercept('POST', 'http://localhost:3002/api/v1/favoritesList', {
       statusCode: 201,
       body: {"id":500840,"title":"I'm Thinking of Ending Things","poster_path":"https://image.tmdb.org/t/p/original//5ynWWapdl45hJXUh0KIevxSG9JQ.jpg","backdrop_path":"https://image.tmdb.org/t/p/original//x3NqAzuTWvnron4pXXyFGkyTFo7.jpg","release_date":"2020-08-28","overview":"Nothing is as it seems when a woman experiencing misgivings about her new boyfriend joins him on a road trip to meet his parents at their remote farm.","genres":["Drama","Thriller"],"budget":0,"revenue":0,"runtime":135,"tagline":"","average_rating":6}
@@ -46,23 +48,20 @@ describe('Movie Details User Flows', () => {
       statusCode: 201,
       body: [{"id":500840,"title":"I'm Thinking of Ending Things","poster_path":"https://image.tmdb.org/t/p/original//5ynWWapdl45hJXUh0KIevxSG9JQ.jpg","backdrop_path":"https://image.tmdb.org/t/p/original//x3NqAzuTWvnron4pXXyFGkyTFo7.jpg","release_date":"2020-08-28","overview":"Nothing is as it seems when a woman experiencing misgivings about her new boyfriend joins him on a road trip to meet his parents at their remote farm.","genres":["Drama","Thriller"],"budget":0,"revenue":0,"runtime":135,"tagline":"","average_rating":6}]
     })
-    cy.visit('http://localhost:3001/movies/500840')
-    .get('.addMovie').click()
-    .visit('http://localhost:3001/favorites')
-    cy.get('article').last().should('contain', 'Rating: 6')
-  })
-
-  //TO Do: need to change this based on the merge** button will not be last.
-  it('If a user clicks on the Remove from Favorites Button, ', () => {
     cy.intercept('DELETE', 'http://localhost:3002/api/v1/favoritesList', {
       statusCode: 202,
       body: 539885
     })
     cy.visit('http://localhost:3001/movies/500840')
+    .get('.addMovie').click()
+    .visit('http://localhost:3001/favorites')
+    cy.get('article').last().should('contain', 'Rating: 6')
+    cy.visit('http://localhost:3001/movies/500840')
     .get('.deleteButton').click()
     .visit('http://localhost:3001/favorites')
     .get(".CardContainer").should('not.contain', 'Rating: 6')
   })
+
 
 
 });
