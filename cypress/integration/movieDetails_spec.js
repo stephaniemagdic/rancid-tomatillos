@@ -39,6 +39,23 @@ describe('Movie Details User Flows', () => {
     .get('h2').contains('Page Not Found')
   })
 
+  //NEW TESTS:
+  //TO do, once merged test that the button is disabled.
+  //here testing our express microservice new api.
+  it('When a user clicks on the add button, they should see the button has been disabled and the text has changed to remove from favorites, ', () => {
+    cy.intercept('POST', 'http://localhost:3002/api/v1/favoritesList', {
+      statusCode: 201,
+      body: {
+        "id":694919,"title":"Money Plane","poster_path":"https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg","backdrop_path":"https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg","release_date":"2020-09-29","overview":"A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.","genres":["Action"],"budget":0,"revenue":0,"runtime":82,"tagline":"","average_rating":6.142857142857143
+      }
+    })
+    cy.visit('http://localhost:3001/694919')
+    .get('button').click()
+    .visit('http://localhost:3001/favorites')
+    .get('article').first().contains(6.14)
+  })
+
+
 
 });
 
