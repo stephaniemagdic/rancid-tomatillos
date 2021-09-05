@@ -26,14 +26,14 @@ class MovieDisplay extends Component {
       .catch((err) => this.setState({err, isLoading:false}));
   }
 
+  //these needed to be chained.
   addToFavorites = () => {
-    postData(this.state.selectedMovie)
-    this.props.getFavorites();
+    postData(this.state.selectedMovie).then(() => this.props.getFavorites())
   }
 
   removeFromFavorites = () => {
-    deleteData(this.state.selectedMovie.id)
-    this.props.getFavorites();
+    deleteData(this.state.selectedMovie.id).then(() => this.props.getFavorites())
+    // deleteData('delete').then(() => this.props.getFavorites())
   }
 
   render() {
