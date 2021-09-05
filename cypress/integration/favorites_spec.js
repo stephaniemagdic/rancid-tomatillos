@@ -1,4 +1,6 @@
 describe('Favorites User Flows', () => {
+ //Note: because the data does not persist the get request is tested through a stub on the movieDetails spec user flow.
+
   it('When a user clicks on a the RANCID TOMATILLOS header they should be taken back to the home page', () => {
     cy.visit('http://localhost:3001/Favorites');
     cy.get('h1').click()
