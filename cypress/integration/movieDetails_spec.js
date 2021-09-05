@@ -33,9 +33,12 @@ describe('Movie Details User Flows', () => {
     cy.get('.backButton').click().url().should('not.include', 'movies')
   })
 
+  //This belongs in a test file of its own.
   it('If user alters a url path to an undefined path, it should bring them to an error display page', () => {
     cy.visit('http://localhost:3001/hotdogs')
-    .get('h2').contains('Page not found')
+    .get('h2').contains('Page Not Found')
   })
+
+
 });
 
