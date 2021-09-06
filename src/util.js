@@ -35,3 +35,10 @@ const checkForErrors = (response) => {
   }
 } 
 
+export const cleanData = (movieObj) => {
+  for(let key in movieObj) {
+    if(!movieObj[key]) {
+      movieObj[key] = '-'
+    }
+  }
+}
