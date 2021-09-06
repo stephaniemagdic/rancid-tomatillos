@@ -76,23 +76,6 @@ class MovieDisplay extends Component {
         <MovieDetail 
          details={this.state.selectedMovie}
         />
-<<<<<<< HEAD
-=======
-        <button
-          className="addMovie"
-          onClick={ () => {
-            this.addToFavorites();
-          }}
-        >add to favorites
-        </button>
-        <button
-          className="deleteButton"
-          onClick={ () => {
-            this.removeFromFavorites();
-          }}
-        >remove from favorites
-        </button>
->>>>>>> 62e0e4e02babc01c4b7cb865f7f05b91fcdf2641
       </section>
     )
 
