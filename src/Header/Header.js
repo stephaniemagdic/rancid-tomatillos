@@ -59,9 +59,6 @@ const Header = () => {
               }}
           />  
         </div> */}
-      <Link to="/Favorites">
-        <h3>Favorites</h3>
-      </Link>
     </header>
   )
 }

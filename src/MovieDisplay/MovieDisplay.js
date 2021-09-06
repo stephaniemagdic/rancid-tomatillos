@@ -21,17 +21,16 @@ class MovieDisplay extends Component {
 
   componentDidMount = () => {
     fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.params.id}`)
-      .then((data) => {
-        this.setState({selectedMovie: data.movie, isLoading: false})
-      }).then(() => {
-        if (this.props.checkFavorites(this.state.selectedMovie.id)) {
-          this.setState({isFavorite: true})
-        }
-      })
       .then((data) => cleanData(data.movie))
       .then((movieData) => this.setState({
-        selectedMovie: movieData, isLoading: false
+        selectedMovie: movieData, 
+        isLoading: false
         }))
+        .then(() => {
+          if (this.props.checkFavorites(this.state.selectedMovie.id)) {
+            this.setState({isFavorite: true})
+          }
+        })
       .catch((err) => this.setState({err, isLoading:false}));
     }
 
