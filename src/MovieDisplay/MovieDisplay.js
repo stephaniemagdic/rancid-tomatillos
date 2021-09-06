@@ -1,12 +1,11 @@
 import './MovieDisplay.css';
 import MovieDetail from '../MovieDetail/MovieDetail';
 import Header from '../Header/Header';
-import { fetchData, postData, deleteData } from '../util.js';
+import { fetchData, postData, deleteData, cleanData } from '../util.js';
 import { Component } from 'react';
 import  ErrorDisplay from '../ErrorDisplay/ErrorDisplay';
 import { Link } from 'react-router-dom';
 import icon from "../Assets/rewind.png";
-
 
 class MovieDisplay extends Component {
   constructor(props) {
@@ -29,8 +28,12 @@ class MovieDisplay extends Component {
           this.setState({isFavorite: true})
         }
       })
+      .then((data) => cleanData(data.movie))
+      .then((movieData) => this.setState({
+        selectedMovie: movieData, isLoading: false
+        }))
       .catch((err) => this.setState({err, isLoading:false}));
-  }
+    }
 
   addToFavorites = () => {
     postData(this.state.selectedMovie).then(() => this.props.getFavorites());
@@ -73,6 +76,23 @@ class MovieDisplay extends Component {
         <MovieDetail 
          details={this.state.selectedMovie}
         />
+<<<<<<< HEAD
+=======
+        <button
+          className="addMovie"
+          onClick={ () => {
+            this.addToFavorites();
+          }}
+        >add to favorites
+        </button>
+        <button
+          className="deleteButton"
+          onClick={ () => {
+            this.removeFromFavorites();
+          }}
+        >remove from favorites
+        </button>
+>>>>>>> 62e0e4e02babc01c4b7cb865f7f05b91fcdf2641
       </section>
     )
 

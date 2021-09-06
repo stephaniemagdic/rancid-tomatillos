@@ -30,5 +30,21 @@ h3 {
 .headerLink:hover {
   text-decoration: underline;
   text-decoration-style: dotted;
-
 }
+
+
+/* .react-player {
+  transform: scale(5, 4.5);
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: 5;
+  padding-top: 7em;
+  margin-bottom: 16em;
+  overflow: hidden;
+}
+
+.banner {
+  overflow: hidden;
+  width: 100%;
+} */
