@@ -21,7 +21,7 @@ const CardContainer = ({ movies }) => {
   
     return (
       <section >
-        <Header />
+        <Header hasMovieBanner={true} />
         <section className="CardContainer">
         { !cards.length && (
           <div id="noFavs">
