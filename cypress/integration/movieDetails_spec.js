@@ -1,6 +1,6 @@
 describe('Movie Details User Flows', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3001/');
+    cy.visit('http://localhost:3000/');
   });
 
   it('When a user clicks on a movie card they should be taken to a new page with the movies details', () => {
@@ -28,17 +28,12 @@ describe('Movie Details User Flows', () => {
     .get('article').contains("A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.")
   })
 
-  it('User should be able to click the back button icon and be taken back to the main page', () => {
-    cy.visit('http://localhost:3001/movies/694919')
-    cy.get('.backButton').click().url().should('not.include', 'movies')
+  it('User should be able to click the back button rewind icon and be taken back to the main page', () => {
+    cy.visit('http://localhost:3000/movies/694919')
+    cy.get('#rewind').click().url().should('not.include', 'movies')
   })
 
-   //TO do, once merged test that the button is disabled.
-  it('When a user clicks on the add button, they should see the button has been text has changed to remove from favorites', () => {
-  })
-  
 
-    //TO Do: need to change this based on the merge** button will not be last.
   it('A user should be able to click on the add or remove from favorites button to add or remove a movie to their favorites list, ', () => {
     cy.intercept('POST', 'http://localhost:3002/api/v1/favoritesList', {
       statusCode: 201,
@@ -52,17 +47,28 @@ describe('Movie Details User Flows', () => {
       statusCode: 202,
       body: 539885
     })
-    cy.visit('http://localhost:3001/movies/500840')
-    .get('.addMovie').click()
-    .visit('http://localhost:3001/favorites')
-    cy.get('article').last().should('contain', 'Rating: 6')
-    cy.visit('http://localhost:3001/movies/500840')
-    .get('.deleteButton').click()
-    .visit('http://localhost:3001/favorites')
+    cy.visit('http://localhost:3000/movies/500840')
+    .get('button').first().click()
+    .visit('http://localhost:3000/favorites')
+    cy.get('article').last().should('contain', '6.0/10')
+    cy.visit('http://localhost:3000/movies/500840')
+    .get('button').first().click()
+    .visit('http://localhost:3000/favorites')
     .get(".CardContainer").should('not.contain', 'Rating: 6')
   })
 
-
+  it('When a user clicks on the add button, they should see the button has been text has changed to remove from favorites and if it says remove, and it is clicked it should display add to favorites', () => {
+    cy.visit('http://localhost:3000/movies/500840')
+    .get('button').should('contain', 'add to favorites')
+    .get('button').first().click()
+    .visit('http://localhost:3000/favorites')
+    cy.get('article').last().should('contain', '6.0/10')
+    cy.visit('http://localhost:3000/movies/500840')
+    .get('button').should('contain', 'remove from favorites')
+    .get('button').first().click()
+    .visit('http://localhost:3000/favorites')
+    .get(".CardContainer").should('not.contain', 'Rating: 6')
+  })
 
 });
 
