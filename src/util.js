@@ -41,4 +41,5 @@ export const cleanData = (movieObj) => {
       movieObj[key] = '-'
     }
   }
+  return movieObj;
 }
