@@ -1,3 +1,13 @@
+.Header {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-container {
+  display: flex;
+  jusity-content: space-between;
+}
+
 header {
   background-color: #e3e2df;;
   display: flex;
@@ -10,6 +20,7 @@ header {
 
 h1 {
   margin-left: 1vw;
+  font-family: 'Rampart One', cursive;
 }
 
 h3 {
@@ -32,8 +43,7 @@ h3 {
   text-decoration-style: dotted;
 }
 
-
-/* .react-player {
+.react-player {
   transform: scale(5, 4.5);
   top: 0;
   left: 0;
@@ -47,4 +57,4 @@ h3 {
 .banner {
   overflow: hidden;
   width: 100%;
-} */
+}
