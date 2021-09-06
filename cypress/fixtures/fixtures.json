@@ -1,0 +1,20 @@
+
+{
+  "movieDetail": {
+    "id": 500840,
+    "title": "I'm Thinking of Ending Things",
+    "poster_path": "https://image.tmdb.org/t/p/original//5ynWWapdl45hJXUh0KIevxSG9JQ.jpg",
+    "backdrop_path": "https://image.tmdb.org/t/p/original//x3NqAzuTWvnron4pXXyFGkyTFo7.jpg",
+    "release_date": "2020-08-28",
+    "overview": "Nothing is as it seems when a woman experiencing misgivings about her new boyfriend joins him on a road trip to meet his parents at their remote farm.",
+    "genres": [
+      "Drama",
+      "Thriller"
+    ],
+    "budget": 0,
+    "revenue": 0,
+    "runtime": 135,
+    "tagline": "",
+    "average_rating": 6
+  }
+}
