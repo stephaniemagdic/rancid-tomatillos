@@ -1,9 +1,7 @@
-// const url = 'https://rancid-tomatillos.herokuapp.com/api/v2'
-
 export const fetchData = (url) => {
   return fetch(url)
   .then((response) => checkForErrors(response))
-    .then(data => data)
+    .then(data =>  data)
 }
 
 export const postData = (dataObject) => {
@@ -13,7 +11,7 @@ export const postData = (dataObject) => {
     headers: {
       'Content-type': 'application/json'
     }
-  })
+  }).then((response) => response)
 }
 
 export const deleteData = (id) => {
@@ -24,7 +22,6 @@ export const deleteData = (id) => {
       'Content-type': 'application/json',
     }
   })
-  .catch((err) => console.log("id error", err))
 }
 
 const checkForErrors = (response) => {
