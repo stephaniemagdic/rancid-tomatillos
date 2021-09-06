@@ -5,6 +5,7 @@ header {
   align-items: flex-end;
   z-index: 3;
   position: relative;
+  box-shadow: 1px -8px 28px black;
 }
 
 h1 {
