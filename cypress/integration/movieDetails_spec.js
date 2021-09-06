@@ -33,15 +33,46 @@ describe('Movie Details User Flows', () => {
     cy.get('#rewind').click().url().should('not.include', 'movies')
   })
 
-
   it('A user should be able to click on the add or remove from favorites button to add or remove a movie to their favorites list, ', () => {
     cy.intercept('POST', 'http://localhost:3002/api/v1/favoritesList', {
       statusCode: 201,
-      body: {"id":500840,"title":"I'm Thinking of Ending Things","poster_path":"https://image.tmdb.org/t/p/original//5ynWWapdl45hJXUh0KIevxSG9JQ.jpg","backdrop_path":"https://image.tmdb.org/t/p/original//x3NqAzuTWvnron4pXXyFGkyTFo7.jpg","release_date":"2020-08-28","overview":"Nothing is as it seems when a woman experiencing misgivings about her new boyfriend joins him on a road trip to meet his parents at their remote farm.","genres":["Drama","Thriller"],"budget":0,"revenue":0,"runtime":135,"tagline":"","average_rating":6}
+      body: {
+        "id": 500840,
+        "title": "I'm Thinking of Ending Things",
+        "poster_path": "https://image.tmdb.org/t/p/original//5ynWWapdl45hJXUh0KIevxSG9JQ.jpg",
+        "backdrop_path": "https://image.tmdb.org/t/p/original//x3NqAzuTWvnron4pXXyFGkyTFo7.jpg",
+        "release_date": "2020-08-28",
+        "overview": "Nothing is as it seems when a woman experiencing misgivings about her new boyfriend joins him on a road trip to meet his parents at their remote farm.",
+        "genres": [
+          "Drama",
+          "Thriller"
+        ],
+        "budget": 0,
+        "revenue": 0,
+        "runtime": 135,
+        "tagline": "",
+        "average_rating": 6
+      }
     })
     cy.intercept('GET', 'http://localhost:3002/api/v1/favoritesList', {
       statusCode: 201,
-      body: [{"id":500840,"title":"I'm Thinking of Ending Things","poster_path":"https://image.tmdb.org/t/p/original//5ynWWapdl45hJXUh0KIevxSG9JQ.jpg","backdrop_path":"https://image.tmdb.org/t/p/original//x3NqAzuTWvnron4pXXyFGkyTFo7.jpg","release_date":"2020-08-28","overview":"Nothing is as it seems when a woman experiencing misgivings about her new boyfriend joins him on a road trip to meet his parents at their remote farm.","genres":["Drama","Thriller"],"budget":0,"revenue":0,"runtime":135,"tagline":"","average_rating":6}]
+      body: [{
+        "id": 500840,
+        "title": "I'm Thinking of Ending Things",
+        "poster_path": "https://image.tmdb.org/t/p/original//5ynWWapdl45hJXUh0KIevxSG9JQ.jpg",
+        "backdrop_path": "https://image.tmdb.org/t/p/original//x3NqAzuTWvnron4pXXyFGkyTFo7.jpg",
+        "release_date": "2020-08-28",
+        "overview": "Nothing is as it seems when a woman experiencing misgivings about her new boyfriend joins him on a road trip to meet his parents at their remote farm.",
+        "genres": [
+          "Drama",
+          "Thriller"
+        ],
+        "budget": 0,
+        "revenue": 0,
+        "runtime": 135,
+        "tagline": "",
+        "average_rating": 6
+      }]
     })
     cy.intercept('DELETE', 'http://localhost:3002/api/v1/favoritesList', {
       statusCode: 202,
