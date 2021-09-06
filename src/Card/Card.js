@@ -1,7 +1,7 @@
 import './Card.css';
 import { Link } from 'react-router-dom';
 
-const Card = ({ fetchSelection, id, img, title, rating }) => {
+const Card = ({ id, img, title, rating }) => {
     
   
 

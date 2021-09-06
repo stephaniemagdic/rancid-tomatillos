@@ -1,11 +1,10 @@
 import './MovieDisplay.css';
 import MovieDetail from '../MovieDetail/MovieDetail';
 import Header from '../Header/Header';
-import { fetchData } from '../util.js';
+import { fetchData, postData, deleteData, cleanData } from '../util.js';
 import { Component } from 'react';
 import  ErrorDisplay from '../ErrorDisplay/ErrorDisplay';
 import { Link } from 'react-router-dom';
-
 
 class MovieDisplay extends Component {
   constructor(props) {
@@ -19,13 +18,21 @@ class MovieDisplay extends Component {
   }
 
   componentDidMount = () => {
-    fetchData(`movies/${this.params.id}`)
-      .then((data) => {
-        this.setState({selectedMovie: data.movie, isLoading: false})
-      })
+    fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.params.id}`)
+      .then((data) => cleanData(data.movie))
+      .then((movieData) => this.setState({
+        selectedMovie: movieData, isLoading: false
+        }))
       .catch((err) => this.setState({err, isLoading:false}));
+    }
+
+  addToFavorites = () => {
+    postData(this.state.selectedMovie).then(() => this.props.getFavorites())
   }
 
+  removeFromFavorites = () => {
+    deleteData(this.state.selectedMovie.id).then(() => this.props.getFavorites())
+  }
 
   render() {
     const movie = (
@@ -42,6 +49,20 @@ class MovieDisplay extends Component {
         <MovieDetail 
          details={this.state.selectedMovie}
         />
+        <button
+          className="addMovie"
+          onClick={ () => {
+            this.addToFavorites();
+          }}
+        >add to favorites
+        </button>
+        <button
+          className="deleteButton"
+          onClick={ () => {
+            this.removeFromFavorites();
+          }}
+        >remove from favorites
+        </button>
       </section>
     )
 

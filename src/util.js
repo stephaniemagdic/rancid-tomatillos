@@ -1,13 +1,31 @@
-const url = 'https://rancid-tomatillos.herokuapp.com/api/v2'
+// const url = 'https://rancid-tomatillos.herokuapp.com/api/v2'
 
-export const fetchData = (endpoint) => {
-  return fetch(`${url}/${endpoint}`)
+export const fetchData = (url) => {
+  return fetch(url)
   .then((response) => checkForErrors(response))
-    .then(data => {
-      console.log("fetch data", data)
-      return data
-    })
-  }
+    .then(data => data)
+}
+
+export const postData = (dataObject) => {
+  return fetch(`http://localhost:3002/api/v1/favoritesList`, {
+    method: 'POST',
+    body: JSON.stringify(dataObject),
+    headers: {
+      'Content-type': 'application/json'
+    }
+  })
+}
+
+export const deleteData = (id) => {
+  return fetch('http://localhost:3002/api/v1/favoritesList', {
+    method: 'DELETE',
+    body: JSON.stringify({id}),
+    headers: {
+      'Content-type': 'application/json',
+    }
+  })
+  .catch((err) => console.log("id error", err))
+}
 
 const checkForErrors = (response) => {
   if(response.ok) {
@@ -17,3 +35,11 @@ const checkForErrors = (response) => {
   }
 } 
 
+export const cleanData = (movieObj) => {
+  for(let key in movieObj) {
+    if(!movieObj[key]) {
+      movieObj[key] = '-'
+    }
+  }
+  return movieObj;
+}

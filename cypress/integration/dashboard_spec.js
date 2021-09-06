@@ -37,4 +37,7 @@ describe('Dashboard User Flows', () => {
     cy.get('section').get('article').eq(0).click().url().should('include', '/694919')
   })
 
+  //TO DO after merge:
+  // ADD TEST FOR HOME AND FAVORITES BUTTON ON DASHBOARD, to test that it takes you to the new URL.
+
 })
