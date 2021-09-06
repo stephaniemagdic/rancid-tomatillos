@@ -1,4 +1,4 @@
-#Rancid Tomatillos
+# Rancid Tomatillos
 
 ## Table Of Contents
 + [Overview](#overview)
@@ -23,7 +23,7 @@
 ## Setup Instructions
   + Fork this repo by clicking the ```Fork``` button in the upper right of this page
   + Clone your new repo down to your local machine in your chosen directory
-  + This application requires you run a local server in order to handle the favorite movies functionality of the app. You can do this by forking down this repo and following the instructions on the ```README```
+  + This application requires you run a local server in order to handle the favorite movies functionality of the app. You can do this by forking down [this repo](https://github.com/MTCawthray/rancid-tomatillos-api) and following the instructions on the ```README```
   + After your local server is up and running, in your terminal you can navigate back to this repo that you have forked
   + Type ```npm install``` into the command line to install all dependencies
   + Type ```npm start``` into to the command line to start the React app. A browser window will appear running a local host url
