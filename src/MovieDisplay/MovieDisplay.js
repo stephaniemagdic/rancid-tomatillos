@@ -1,7 +1,7 @@
 import './MovieDisplay.css';
 import MovieDetail from '../MovieDetail/MovieDetail';
 import Header from '../Header/Header';
-import { fetchData, postData, deleteData } from '../util.js';
+import { fetchData, postData, deleteData, cleanData } from '../util.js';
 import { Component } from 'react';
 import  ErrorDisplay from '../ErrorDisplay/ErrorDisplay';
 import { Link } from 'react-router-dom';
@@ -19,11 +19,12 @@ class MovieDisplay extends Component {
 
   componentDidMount = () => {
     fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.params.id}`)
-      .then((data) => {
-        this.setState({selectedMovie: data.movie, isLoading: false})
-      })
+      .then((data) => cleanData(data.movie))
+      .then((movieData) => this.setState({
+        selectedMovie: movieData, isLoading: false
+        }))
       .catch((err) => this.setState({err, isLoading:false}));
-  }
+    }
 
   addToFavorites = () => {
     postData(this.state.selectedMovie).then(() => this.props.getFavorites())
