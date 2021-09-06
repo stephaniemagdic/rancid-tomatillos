@@ -5,6 +5,7 @@ import { fetchData, postData, deleteData, cleanData } from '../util.js';
 import { Component } from 'react';
 import  ErrorDisplay from '../ErrorDisplay/ErrorDisplay';
 import { Link } from 'react-router-dom';
+import icon from "../Assets/rewind.png";
 
 class MovieDisplay extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class MovieDisplay extends Component {
     this.params = props.params;
     this.state = {
       selectedMovie: {},
+      isFavorite: false,
       isLoading: true,
       err: null
     };
@@ -21,48 +23,58 @@ class MovieDisplay extends Component {
     fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.params.id}`)
       .then((data) => cleanData(data.movie))
       .then((movieData) => this.setState({
-        selectedMovie: movieData, isLoading: false
+        selectedMovie: movieData, 
+        isLoading: false
         }))
+        .then(() => {
+          if (this.props.checkFavorites(this.state.selectedMovie.id)) {
+            this.setState({isFavorite: true})
+          }
+        })
       .catch((err) => this.setState({err, isLoading:false}));
     }
 
   addToFavorites = () => {
-    postData(this.state.selectedMovie).then(() => this.props.getFavorites())
+    postData(this.state.selectedMovie).then(() => this.props.getFavorites());
   }
 
   removeFromFavorites = () => {
-    deleteData(this.state.selectedMovie.id).then(() => this.props.getFavorites())
+    deleteData(this.state.selectedMovie.id).then(() => this.props.getFavorites());
   }
 
   render() {
     const movie = (
       <section className='MovieDisplay' >
+      <div className="buttonContainer">
+         {!this.state.isFavorite && (
+          <button
+          onClick={ () => {
+            this.addToFavorites();
+            this.setState({isFavorite: true});
+          }}
+        >+ add to favorites
+        </button>
+        )}
+        {this.state.isFavorite && (
+          <button
+            id="removeFav"
+            onClick={ () => {
+              this.removeFromFavorites();
+              this.setState({isFavorite: false});
+          }}
+        >- remove from favorites
+        </button>
+        )} 
         <Link to="/">
-          <div 
-            className='backButton' 
-          >GO BACK
-          </div>
+          <img src={icon} alt="rewind" id="rewind"/>
         </Link>
+      </div>
         <div className="imageContainer" >
           <img src={this.state.selectedMovie.backdrop_path} alt={this.state.selectedMovie.title} />
         </div> 
         <MovieDetail 
          details={this.state.selectedMovie}
         />
-        <button
-          className="addMovie"
-          onClick={ () => {
-            this.addToFavorites();
-          }}
-        >add to favorites
-        </button>
-        <button
-          className="deleteButton"
-          onClick={ () => {
-            this.removeFromFavorites();
-          }}
-        >remove from favorites
-        </button>
       </section>
     )
 
@@ -75,7 +87,6 @@ class MovieDisplay extends Component {
       </div>
     )
   }
-
 }
 
 export default MovieDisplay;

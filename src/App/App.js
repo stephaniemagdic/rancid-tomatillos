@@ -31,6 +31,10 @@ class App extends Component {
   this.getFavorites();
  }
 
+  checkFavorites = (id) => {
+    return this.state.favorites.find(fav => fav.id === id)
+  }
+
   getFavorites = () => {
     const favoriteMovies = 'http://localhost:3002/api/v1/favoritesList'
 
@@ -52,6 +56,7 @@ class App extends Component {
           <Route exact path="/movies/:id" render={ ({ match }) => {
             return <MovieDisplay { ...match } 
               getFavorites={this.getFavorites}
+              checkFavorites={this.checkFavorites}
             />
           }}
           />
