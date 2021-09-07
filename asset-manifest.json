@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/rancid-tomatillos/static/css/main.92a2189f.chunk.css",
-    "main.js": "/rancid-tomatillos/static/js/main.80e7c6b0.chunk.js",
-    "main.js.map": "/rancid-tomatillos/static/js/main.80e7c6b0.chunk.js.map",
-    "runtime-main.js": "/rancid-tomatillos/static/js/runtime-main.49f8b2a8.js",
-    "runtime-main.js.map": "/rancid-tomatillos/static/js/runtime-main.49f8b2a8.js.map",
-    "static/js/2.67e0391b.chunk.js": "/rancid-tomatillos/static/js/2.67e0391b.chunk.js",
-    "static/js/2.67e0391b.chunk.js.map": "/rancid-tomatillos/static/js/2.67e0391b.chunk.js.map",
-    "static/js/3.7c4058fc.chunk.js": "/rancid-tomatillos/static/js/3.7c4058fc.chunk.js",
-    "static/js/3.7c4058fc.chunk.js.map": "/rancid-tomatillos/static/js/3.7c4058fc.chunk.js.map",
-    "index.html": "/rancid-tomatillos/index.html",
-    "static/css/main.92a2189f.chunk.css.map": "/rancid-tomatillos/static/css/main.92a2189f.chunk.css.map",
-    "static/js/2.67e0391b.chunk.js.LICENSE.txt": "/rancid-tomatillos/static/js/2.67e0391b.chunk.js.LICENSE.txt",
-    "static/media/browser.77b269e1.png": "/rancid-tomatillos/static/media/browser.77b269e1.png",
-    "static/media/electronics.c98b4ad0.png": "/rancid-tomatillos/static/media/electronics.c98b4ad0.png"
+    "main.css": "/static/css/main.92a2189f.chunk.css",
+    "main.js": "/static/js/main.80e7c6b0.chunk.js",
+    "main.js.map": "/static/js/main.80e7c6b0.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.3dec05a3.js",
+    "runtime-main.js.map": "/static/js/runtime-main.3dec05a3.js.map",
+    "static/js/2.67e0391b.chunk.js": "/static/js/2.67e0391b.chunk.js",
+    "static/js/2.67e0391b.chunk.js.map": "/static/js/2.67e0391b.chunk.js.map",
+    "static/js/3.7c4058fc.chunk.js": "/static/js/3.7c4058fc.chunk.js",
+    "static/js/3.7c4058fc.chunk.js.map": "/static/js/3.7c4058fc.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.92a2189f.chunk.css.map": "/static/css/main.92a2189f.chunk.css.map",
+    "static/js/2.67e0391b.chunk.js.LICENSE.txt": "/static/js/2.67e0391b.chunk.js.LICENSE.txt",
+    "static/media/browser.77b269e1.png": "/static/media/browser.77b269e1.png",
+    "static/media/electronics.c98b4ad0.png": "/static/media/electronics.c98b4ad0.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.49f8b2a8.js",
+    "static/js/runtime-main.3dec05a3.js",
     "static/js/2.67e0391b.chunk.js",
     "static/css/main.92a2189f.chunk.css",
     "static/js/main.80e7c6b0.chunk.js"
