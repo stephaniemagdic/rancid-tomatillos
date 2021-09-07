@@ -18,7 +18,7 @@
 [image goes here]()
 
 [gif goes here]()
-<img src="https://i.ibb.co/b66r2RN/RT-Add-to-Favorites.gif" alt="RT-Add-to-Favorites" border="0">
+<img src="https://i.ibb.co/b66r2RN/RT-Add-to-Favorites.gif" alt="RT-Add-to-Favorites" border="0" width="200px" height="200px">
 <img src="https://i.ibb.co/zmKfyMC/RT-back-button.gif" alt="RT-back-button" border="0">
 <img src="https://i.ibb.co/j60W0DB/RT-remove-from-favorites.gif" alt="RT-remove-from-favorites" border="0">
 <img src="https://i.ibb.co/C52GXdp/RT-Router.gif" alt="RT-Router" border="0">
