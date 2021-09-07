@@ -1,7 +1,4 @@
 describe('Dashboard User Flows', () => {
-  beforeEach(() => {
-    cy.visit('http://localhost:3001');
-  });
 
   it('Should display movie poster and ratings on individual movie cards on page load', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
@@ -27,9 +24,9 @@ describe('Dashboard User Flows', () => {
           ]
       }
     })
-    cy.request('http://localhost:3001')
-    .get('article').eq(0).contains('Rating: 6.14')
-    cy.get('article').eq(1).contains('Rating: 5.27')
+    cy.visit('http://localhost:3000')
+    .get('article').eq(0).contains('6.1/10')
+    cy.get('article').eq(1).contains('5.3/10')
   })
 
   it('User should be able to click on a movie which will take them away from the page', () => {
@@ -37,7 +34,9 @@ describe('Dashboard User Flows', () => {
     cy.get('section').get('article').eq(0).click().url().should('include', '/694919')
   })
 
-  //TO DO after merge:
-  // ADD TEST FOR HOME AND FAVORITES BUTTON ON DASHBOARD, to test that it takes you to the new URL.
+  it('User should be able to click on the favorites button in the header which will take them away from the homepage to the favorites page', () => {
+    cy.get('header').contains('Favorites')
+    cy.contains('Favorites').click().url().should('include', '/Favorites')
+  })
 
 })
