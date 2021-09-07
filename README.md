@@ -1,4 +1,4 @@
-# [Rancid Tomatillos](https://stephaniemagdic.github.io/)
+# Rancid Tomatillos
 
 ## Table Of Contents
 + [Overview](#overview)
