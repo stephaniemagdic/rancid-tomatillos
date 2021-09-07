@@ -17,19 +17,13 @@ class App extends Component {
    }
  }
 
- componentDidMount = () => {
-  const allMovies = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
-
-  fetchData(allMovies).then(data => {
-    this.setState({movies: [...this.state.movies, ...data.movies]})
-  }).catch((err) => {
-    console.log('ERROR', err)
-    this.setState({error: err.message})
+  componentDidMount = () => {
+    const allMovies = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
+    fetchData(allMovies).then(data => {
+      this.setState({movies: [...this.state.movies, ...data.movies]})
+    }).catch((err) => this.setState({error: err.message}))
+    this.getFavorites();
   }
-  )
-  //To Do: The above .catch is setting our state, however the react dev tools simply shows it as an empty object. We should revisit this after we make our error display component. 
-  this.getFavorites();
- }
 
   checkFavorites = (id) => {
     return this.state.favorites.find(fav => fav.id === id)
@@ -37,10 +31,8 @@ class App extends Component {
 
   getFavorites = () => {
     const favoriteMovies = 'http://localhost:3002/api/v1/favoritesList'
-
-    fetchData(favoriteMovies).then(data => {
-      this.setState({favorites: [...data]})
-    }).catch((data) => this.setState({error: data.message}))
+    fetchData(favoriteMovies).then(data => this.setState({favorites: [...data]}))
+    .catch((data) => this.setState({error: data.message}))
   }
 
  render() {
