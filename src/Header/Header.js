@@ -1,6 +1,5 @@
 import './Header.css';
 import { Link, NavLink } from 'react-router-dom';
-
 import React from 'react'
 import ReactPlayer from 'react-player'
 
@@ -42,7 +41,7 @@ const Header = ({hasMovieBanner}) => {
       { hasMovieBanner && 
       (<div className="banner">
           <ReactPlayer 
-              url='https://www.youtube.com/watch?v=cDTg62vsV4U'
+              url='https://www.youtube.com/watch?v=aETz_dRDEys'
               className="react-player"
               width="100%"
               height="100%"
