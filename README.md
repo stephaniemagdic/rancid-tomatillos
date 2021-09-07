@@ -15,7 +15,6 @@
 
 ## Examples
 
-[image goes here]()
 
 <img src="https://i.ibb.co/b66r2RN/RT-Add-to-Favorites.gif" alt="RT-Add-to-Favorites" border="0" width="750px" height="550px">
 <img src="https://i.ibb.co/zmKfyMC/RT-back-button.gif" alt="RT-back-button" border="0" width="750px" height="550px">
