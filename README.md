@@ -7,7 +7,6 @@
 + [Learning Goals](#learning-goals)
 + [Future features](#future-features)
 + [Technologies used](#technologies-used)
-+ [View Deployed Page](#view-deployed-page)
 + [Contributors](#contributors)
 + [Reflections & Wins](#reflections-and-wins)
 
