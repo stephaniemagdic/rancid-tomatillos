@@ -42,6 +42,7 @@ class App extends Component {
           <Route exact path="/" render={ () => {
             return <CardContainer 
               movies={this.state.movies}
+              hasMovieBanner={true}
             />
           }}
           />
