@@ -8,6 +8,7 @@ const Favorites = ({ favorites }) => {
     <div>
       <CardContainer 
         movies={favorites}
+        hasMovieBanner={false}
       />
     </div>
   ) 

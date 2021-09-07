@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 import { Link } from 'react-router-dom';
 
 
-const CardContainer = ({ movies }) => {
+const CardContainer = ({ movies, hasMovieBanner }) => {
   
   const cards = movies.map(movie => {
     return (
@@ -21,7 +21,7 @@ const CardContainer = ({ movies }) => {
   
     return (
       <section >
-        <Header />
+        <Header hasMovieBanner={hasMovieBanner} />
         <section className="CardContainer">
         { !cards.length && (
           <div id="noFavs">
