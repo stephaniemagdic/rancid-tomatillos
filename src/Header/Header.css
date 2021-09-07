@@ -5,14 +5,12 @@
 
 .nav-container {
   display: flex;
-  jusity-content: space-between;
+  justify-content: space-between;
 }
 
 header {
   background-color: #e3e2df;;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
   z-index: 3;
   position: relative;
   box-shadow: 1px -8px 28px black;
@@ -21,17 +19,20 @@ header {
 h1 {
   margin-left: 1vw;
   font-family: 'Rampart One', cursive;
+  font-size: 40px;
+  margin-bottom: 20px
 }
 
 h3 {
   color: #AB2300;
+  font-family: 'Rampart One', cursive;
 }
 
 #linkContainer {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-start;
-  margin-bottom: 5px;
+  margin-bottom: 30px
 }
 
 .headerLink {
@@ -44,13 +45,9 @@ h3 {
 }
 
 .react-player {
-  transform: scale(5, 4.5);
-  top: 0;
-  left: 0;
-  object-fit: cover;
-  z-index: 5;
-  padding-top: 7em;
-  margin-bottom: 16em;
+  transform: scale(6, 4.5);
+  padding-top: 3em;
+  margin-bottom: 10em;
   overflow: hidden;
 }
 
