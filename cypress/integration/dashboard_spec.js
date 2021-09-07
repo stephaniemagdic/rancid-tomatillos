@@ -39,14 +39,7 @@ describe('Dashboard User Flows', () => {
     cy.contains('Favorites').click().url().should('include', '/Favorites')
   })
 
+
 })
-
-
-
-
-
-
-
-
 
 
