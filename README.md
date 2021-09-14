@@ -16,7 +16,7 @@
 
 ## Examples
 
-<img src="https://i.ibb.co/C6wQwX1/RT.gif" alt="RT" border="0"> width="750px" height="550px">
+<img src="https://i.ibb.co/C6wQwX1/RT.gif" alt="RT" border="0" width="750px" height="550px">
 
 
 
