@@ -27,7 +27,7 @@ const CardContainer = ({ movies, hasMovieBanner }) => {
           <div id="noFavs">
             <p className="noFavoritesMessage">It looks like you haven't chosen any favorites yet!</p>
             <img src={icon} alt="television icon" />
-            <Link to="/"> 
+            <Link to="/rancid-tomatillos"> 
               <button
                 id="findFavBtn"
               >take me home to choose a favorite</button>

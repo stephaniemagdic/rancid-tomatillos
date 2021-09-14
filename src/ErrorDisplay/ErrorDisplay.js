@@ -9,10 +9,10 @@ const ErrorDisplay = ({ errorMessage }) => {
 
   if (errorMessage) {
     displayText = errorMessage
-    button = <Link to="/"><button>TAKE ME TO MOVIE BUFFER</button></Link>
+    button = <Link to="/rancid-tomatillos"><button>TAKE ME TO MOVIE BUFFER</button></Link>
   } else if (!errorMessage) {
     displayText = 'oops, something went wrong'
-    button = <Link to="/"><button>TAKE ME TO MOVIE BUFFER</button></Link>
+    button = <Link to="/rancid-tomatillos"><button>TAKE ME TO MOVIE BUFFER</button></Link>
   }
 
   return (

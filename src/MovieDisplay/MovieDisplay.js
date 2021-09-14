@@ -73,7 +73,7 @@ class MovieDisplay extends Component {
         >- remove from favorites
         </button>
         )} 
-        <Link to="/">
+        <Link to="/rancid-tomatillos">
           <img src={icon} alt="rewind" id="rewind"/>
         </Link>
       </div>
