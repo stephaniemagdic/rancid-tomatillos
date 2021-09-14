@@ -1,5 +1,5 @@
 # Movie Buffer
-## [Link to Deployed Site] (https://stephaniemagdic.github.io/rancid-tomatillos/)
+## [Link to Deployed Site](https://stephaniemagdic.github.io/rancid-tomatillos/)
 
 ## Table Of Contents
 + [Overview](#overview)
