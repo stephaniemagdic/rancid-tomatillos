@@ -16,10 +16,7 @@
 
 ## Examples
 
-<img src="https://i.ibb.co/C6wQwX1/RT.gif" alt="RT" border="0" width="750px" height="550px">
-
-
-
+<img src="https://i.ibb.co/C6wQwX1/RT.gif" alt="RT" border="0" width="700px" height="500px">
 
 ## Setup Instructions
   + Fork this repo by clicking the ```Fork``` button in the upper right of this page
@@ -72,10 +69,7 @@
   + We utilized Cypress testing for the first time on this project. It was a very interesting switch from our previous experience of only unit testing. Switching our mindset to getting inside the head of a potential user was a challenge, but ultimately a valuable learning experience and it put user empathy on the front of our minds as we were building out the features of this app. 
   + In learning so many new frameworks and libraries at once, we had to get more and more comfortable navigation through each one's documentation. This helped immensely in troubleshooting any problems that arose along the way.
   
-  The Contributors Favorite Movies:
-  -
-  -
-
+ 
   [Return to top](#rancid-tomatillos)
 
 
