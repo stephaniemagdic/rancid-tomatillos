@@ -1,4 +1,5 @@
 # Movie Buffer
+## [Link to Deployed Site] (https://stephaniemagdic.github.io/rancid-tomatillos/)
 
 ## Table Of Contents
 + [Overview](#overview)
@@ -15,11 +16,8 @@
 
 ## Examples
 
-
 <img src="https://i.ibb.co/b66r2RN/RT-Add-to-Favorites.gif" alt="RT-Add-to-Favorites" border="0" width="750px" height="550px">
-<img src="https://i.ibb.co/zmKfyMC/RT-back-button.gif" alt="RT-back-button" border="0" width="750px" height="550px">
-<img src="https://i.ibb.co/j60W0DB/RT-remove-from-favorites.gif" alt="RT-remove-from-favorites" border="0" width="750px" height="550px">
-<img src="https://i.ibb.co/C52GXdp/RT-Router.gif" alt="RT-Router" border="0" width="750px" height="550px">
+
 
 ## Setup Instructions
   + Fork this repo by clicking the ```Fork``` button in the upper right of this page
@@ -71,6 +69,10 @@
   + Working as a team allowed us to successfully navigate through issues that popped up throughout our collective learning experience on this project. It also enabled us to work asynchronously towards our stated goals that ultimately let us cover more ground than we initially anticipated. 
   + We utilized Cypress testing for the first time on this project. It was a very interesting switch from our previous experience of only unit testing. Switching our mindset to getting inside the head of a potential user was a challenge, but ultimately a valuable learning experience and it put user empathy on the front of our minds as we were building out the features of this app. 
   + In learning so many new frameworks and libraries at once, we had to get more and more comfortable navigation through each one's documentation. This helped immensely in troubleshooting any problems that arose along the way.
+  
+  The Contributors Favorite Movies:
+  -
+  -
 
   [Return to top](#rancid-tomatillos)
 
