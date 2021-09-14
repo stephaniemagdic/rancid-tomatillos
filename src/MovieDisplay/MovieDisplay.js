@@ -31,15 +31,23 @@ class MovieDisplay extends Component {
             this.setState({isFavorite: true})
           }
         })
-      .catch((err) => this.setState({err, isLoading:false}));
+      .catch((err) => {
+        console.log(err, "err inside of fetch a single movie comp didmount")
+        this.setState({err, isLoading:false})
+      });
     }
 
   addToFavorites = () => {
-    postData(this.state.selectedMovie).then(() => this.props.getFavorites());
+    postData(this.state.selectedMovie).then(() => {
+      this.props.favoritesErr(null)
+
+    this.props.getFavorites()}).catch((err) => this.props.favoritesErr('looks like our favorites feature is sick today! We apologize.'));
   }
 
   removeFromFavorites = () => {
-    deleteData(this.state.selectedMovie.id).then(() => this.props.getFavorites());
+    deleteData(this.state.selectedMovie.id).then(() => {
+      this.props.favoritesErr(null)
+      this.props.getFavorites()}).catch((err) => this.props.favoritesErr('looks like our favorites feature is sick today! We apologize.'))
   }
 
   render() {
@@ -83,7 +91,7 @@ class MovieDisplay extends Component {
         <Header />
         {this.state.isLoading && <p>loading, please wait</p>}
         {(!this.state.isLoading && !this.state.err) && movie}
-        {this.state.err && <ErrorDisplay errorMessage={this.state.err}/>}
+        {this.state.err && <ErrorDisplay errorMessage={'404 not found'}/>}
       </div>
     )
   }

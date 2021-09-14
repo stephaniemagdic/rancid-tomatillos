@@ -1,4 +1,4 @@
-# Rancid Tomatillos
+# Movie Buffer
 
 ## Table Of Contents
 + [Overview](#overview)
@@ -34,7 +34,7 @@
   + A user can click on any of the cards which will bring them to a new page of the application that displays that movies specific details.
   + Inside of this details view, a user has the option to click an _add to favorites_ button that will send that movie to the express API and save it for viewing on the favorites page.
   + To view a list of favorited movies, a user can click on the Favorites link in the header (available on any page view) and will be brought to a new page that displays the movie cards of all favorited movies. If no movies are added to favorites yet, the page will display a prompt telling them to return to the home page and pick out a favorite.
-  + A user can also chose to go back to the homepage in one of three ways- clicking the home link in the header, clicking the _rewind icon_ in the top right corner of the movie's image, or by simply clicking on Rancid Tomatillos in the header.
+  + A user can also chose to go back to the homepage in one of three ways- clicking the home link in the header, clicking the _rewind icon_ in the top right corner of the movie's image, or by simply clicking on Movie Buffer in the header.
 
 ## Learning goals
   + Gain competency with React fundamentals

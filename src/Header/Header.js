@@ -7,14 +7,15 @@ const Header = ({hasMovieBanner}) => {
   return (
     <header className='Header'>
       <div className='nav-container'>
-        <Link to="/">
+        {/* this is not working the link to but navlink is working fine. */}
+        <Link exact to="/rancid-tomatillos">
           <h1>
-            RANCID TOMATILLOS
+            MOVIE BUFFER
           </h1>
         </Link>
         <div id="linkContainer">
           <NavLink 
-            exact to="/"
+            exact to="/rancid-tomatillos"
             activeStyle={{
               fontWeight: "bolder",
               textDecoration: "underline",

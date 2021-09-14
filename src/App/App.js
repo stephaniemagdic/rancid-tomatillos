@@ -13,7 +13,8 @@ class App extends Component {
    this.state = {
      movies: [],
      favorites: [],
-     error: null
+     error: null,
+     favoritesErr: null
    }
  }
 
@@ -35,11 +36,15 @@ class App extends Component {
     .catch((data) => this.setState({error: data.message}))
   }
 
+  favoritesError = (message) => {
+    this.setState({favoritesErr: message})
+  }
+
  render() {
    return (
       <main>
         <Switch>
-          <Route exact path="/" render={ () => {
+          <Route exact path="/rancid-tomatillos" render={ () => {
             return <CardContainer 
               movies={this.state.movies}
               hasMovieBanner={true}
@@ -50,16 +55,18 @@ class App extends Component {
             return <MovieDisplay { ...match } 
               getFavorites={this.getFavorites}
               checkFavorites={this.checkFavorites}
+              favoritesErr={this.favoritesError}
             />
           }}
           />
           <Route exact path="/Favorites" render={ () => {
             return <Favorites 
               favorites={this.state.favorites}
+              err={this.state.favoritesErr}
             />
           }}
           />
-          <Route render={() => <ErrorDisplay errorMessage={this.state.error}/>}
+          <Route render={() => <ErrorDisplay errorMessage={'Page Not Found'}/>}
           />
         </Switch>
      </main>
