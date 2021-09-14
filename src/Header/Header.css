@@ -1,6 +1,7 @@
 .Header {
   display: flex;
   flex-direction: column;
+  background-color: black;
 }
 
 .nav-container {
@@ -20,7 +21,9 @@ h1 {
   margin-left: 1vw;
   font-family: 'Rampart One', cursive;
   font-size: 40px;
-  margin-bottom: 20px
+  margin-bottom: 20px;
+  color: #AB2300;
+  margin-left: 30px;
 }
 
 h3 {
