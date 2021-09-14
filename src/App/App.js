@@ -42,7 +42,7 @@ class App extends Component {
 
  render() {
    return (
-      <main>
+      <main className="App">
         <Switch>
           <Route exact path="/rancid-tomatillos" render={ () => {
             return <CardContainer 
