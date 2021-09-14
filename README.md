@@ -16,7 +16,7 @@
 
 ## Examples
 
-<img src="https://i.ibb.co/b66r2RN/RT-Add-to-Favorites.gif" alt="RT-Add-to-Favorites" border="0" width="750px" height="550px">
+<img src="https://i.ibb.co/c2RYF6h/rancid-tomatillos.gif" alt="rancid-tomatillos" border="0" width="750px" height="550px">
 
 
 ## Setup Instructions
