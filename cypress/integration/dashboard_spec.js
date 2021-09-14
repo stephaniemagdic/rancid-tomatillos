@@ -29,8 +29,10 @@ describe('Dashboard User Flows', () => {
     cy.get('article').eq(1).contains('5.3/10')
   })
 
+  // test for 500 error.
+
   it('User should be able to click on a movie which will take them away from the page', () => {
-    cy.get('main').contains('RANCID TOMATILLOS')
+    cy.get('main').contains('MOVIE BUFFER')
     cy.get('section').get('article').eq(0).click().url().should('include', '/694919')
   })
 

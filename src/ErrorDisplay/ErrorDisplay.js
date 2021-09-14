@@ -8,10 +8,11 @@ const ErrorDisplay = ({ errorMessage }) => {
   let button = null;
 
   if (errorMessage) {
-    displayText = 'Server Error'
+    displayText = errorMessage
+    button = <Link to="/rancid-tomatillos"><button>TAKE ME TO MOVIE BUFFER</button></Link>
   } else if (!errorMessage) {
-    displayText = 'Page Not Found'
-    button = <Link to="/"><button>TAKE ME TO RANCID TOMATILLOS</button></Link>
+    displayText = 'oops, something went wrong'
+    button = <Link to="/rancid-tomatillos"><button>TAKE ME TO MOVIE BUFFER</button></Link>
   }
 
   return (

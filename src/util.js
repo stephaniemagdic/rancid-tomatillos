@@ -1,7 +1,8 @@
 export const fetchData = (url) => {
   return fetch(url)
+  //is this below what catches a connection error?
   .then((response) => checkForErrors(response))
-    .then(data =>  data)
+    .then(data =>  data).catch((err) => console.log('inside our catch in fetch data with this error', err))
 }
 
 export const postData = (dataObject) => {
@@ -28,6 +29,7 @@ const checkForErrors = (response) => {
   if(response.ok) {
     return response.json();
   } else {
+    console.log("inside check for errors with our response", response, response.status)
     throw new Error(response.status)
   }
 } 

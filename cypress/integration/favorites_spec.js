@@ -1,5 +1,5 @@
 describe('Favorites User Flows', () => {
-  it('When a user clicks on a the RANCID TOMATILLOS header they should be taken back to the home page', () => {
+  it('When a user clicks on a the  MOVIE BUFFER header they should be taken back to the home page', () => {
     cy.visit('http://localhost:3000/Favorites');
     cy.get('h1').click()
     cy.url().should('not.include', 'http://localhost:3000/Favorites')

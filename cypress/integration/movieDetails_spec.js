@@ -21,7 +21,7 @@ describe('Movie Details User Flows', () => {
         "average_rating":6.142857142857143
       }
     })
-    cy.get('h1').contains('RANCID TOMATILLOS')
+    cy.get('h1').contains('MOVIE BUFFER')
     .get('#694919').click()
     .url().should('include', '/movies/694919')
     .get('article').contains('Money Plane')
