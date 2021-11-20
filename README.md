@@ -12,7 +12,7 @@
 + [Reflections & Wins](#reflections-and-wins)
 
 ## Overview
-+  This project was an exercise in building an app from scratch utilizing the React framework to display movie data from multiple APIs. This app allows users to view a selection of movies from an API, as well as click on any of the movie cards to view that movie's details. Users are also able to add any movie from the API into their favorites, which is posted to an Express server backend. 
++  This project was an exercise in building an app from scratch utilizing the React framework to display movie data from multiple APIs. This app allows users to view a selection of movies from an API, as well as click on any of the movie cards to view that movie's details. Users are also able to add any movie from the API into their favorites, which is posted to our node server backend [here](https://github.com/stephaniemagdic/rancid-tomatillos-api).
 
 ## Examples
 
